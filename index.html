@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CV Modern - Galang</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+body{
+  margin:0;
+  font-family:'Poppins',sans-serif;
+  background:#0b1220;
+  color:#e5e7eb;
+}
+
+header{
+  background:linear-gradient(135deg,#020617,#1e293b);
+  text-align:center;
+  padding:50px 20px;
+}
+
+header img{
+  width:140px;
+  height:140px;
+  border-radius:50%;
+  border:4px solid #38bdf8;
+  margin-bottom:15px;
+}
+
+header h1{
+  margin:0;
+  font-size:30px;
+}
+
+header p{
+  color:#94a3b8;
+}
+
+.container{
+  max-width:900px;
+  margin:auto;
+  padding:30px 20px;
+}
+
+.card{
+  background:#020617;
+  padding:25px;
+  border-radius:18px;
+  margin-bottom:25px;
+  box-shadow:0 15px 35px rgba(0,0,0,.5);
+}
+
+.card h2{
+  margin-top:0;
+  border-left:5px solid #38bdf8;
+  padding-left:12px;
+}
+
+.language{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(130px,1fr));
+  gap:20px;
+  text-align:center;
+}
+
+.circle{
+  width:110px;
+  height:110px;
+  border-radius:50%;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:600;
+}
+
+.id{background:conic-gradient(#22c55e 0% 100%,#1e293b 100%);}
+.sd{background:conic-gradient(#22c55e 0% 100%,#1e293b 100%);}
+.en{background:conic-gradient(#38bdf8 0% 15%,#1e293b 15%);}
+.jp{background:conic-gradient(#f97316 0% 10%,#1e293b 10%);}
+.cn{background:conic-gradient(#ef4444 0% 5%,#1e293b 5%);}
+
+footer{
+  text-align:center;
+  color:#64748b;
+  padding:20px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <img src="foto.jpg">
+  <h1>Galang Tri Ali Alamsah</h1>
+  <p>Pelajar • Bandung</p>
+</header>
+
+<div class="container">
+
+  <div class="card">
+    <h2>Tentang Saya</h2>
+    <p>Saya pelajar yang bertanggung jawab dan cepat belajar.</p>
+  </div>
+
+  <div class="card">
+    <h2>Bahasa</h2>
+    <div class="language">
+      <div><div class="circle id">100%</div><p>Indonesia</p></div>
+      <div><div class="circle sd">100%</div><p>Sunda</p></div>
+      <div><div class="circle en">15%</div><p>Inggris</p></div>
+      <div><div class="circle jp">10%</div><p>Jepang</p></div>
+      <div><div class="circle cn">5%</div><p>China</p></div>
+    </div>
+  </div>
+
+</div>
+
+<footer>© 2026 • Galang</footer>
+
+</body>
+</html>

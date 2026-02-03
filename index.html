@@ -46,7 +46,7 @@ header{
   padding:80px 20px 60px;
   background:linear-gradient(135deg,#0f172a 0%,#1e1b4b 100%);
   position:relative;
-  overflow:hidden;
+  overflow:visible;
 }
 
 header::after{
@@ -63,18 +63,21 @@ header::after{
   position:relative;
   display:inline-block;
   margin-bottom:20px;
+  z-index:10;
 }
 
 header img{
   width:160px;
   height:160px;
   object-fit:cover;
+  object-position:center;
   border-radius:50%;
   border:5px solid transparent;
   background:linear-gradient(#0f172a,#0f172a) padding-box,
              linear-gradient(135deg,#6366f1,#8b5cf6,#ec4899) border-box;
   box-shadow:0 20px 60px rgba(99,102,241,0.3);
   transition:transform 0.3s ease;
+  display:block;
 }
 
 .profile-wrapper:hover img{
@@ -222,6 +225,48 @@ li::before{
   color:#6366f1;
   font-weight:700;
   font-size:20px;
+}
+
+/* ===== HOBBIES GRID ===== */
+.hobbies-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
+  gap:20px;
+  margin-top:10px;
+}
+
+.hobby-item{
+  background:rgba(99,102,241,0.1);
+  border:1px solid rgba(99,102,241,0.2);
+  border-radius:16px;
+  padding:20px;
+  text-align:center;
+  transition:all 0.3s ease;
+}
+
+.hobby-item:hover{
+  background:rgba(99,102,241,0.15);
+  border-color:rgba(99,102,241,0.4);
+  transform:translateY(-3px);
+}
+
+.hobby-icon{
+  font-size:40px;
+  margin-bottom:10px;
+  display:block;
+}
+
+.hobby-title{
+  font-weight:600;
+  font-size:16px;
+  color:#e8eaf0;
+  margin-bottom:5px;
+}
+
+.hobby-desc{
+  font-size:13px;
+  color:#94a3b8;
+  line-height:1.5;
 }
 
 /* ===== LANGUAGES ===== */
@@ -385,6 +430,10 @@ footer{
   .contact-info{
     gap:15px;
   }
+  
+  .hobbies-grid{
+    grid-template-columns:1fr;
+  }
 }
 </style>
 
@@ -437,7 +486,7 @@ window.addEventListener('load', () => {
     <div class="card-content">
       <p class="about-text">
         Saya adalah seorang pelajar yang bertanggung jawab, memiliki minat
-        belajar hal baru, serta mampu bekerja secara mandiri maupun dalam tim,bisa beradaptasi dengan lingkungan sekitar 
+        belajar hal baru, serta mampu bekerja secara mandiri maupun dalam tim, bisa beradaptasi dengan lingkungan sekitar.
       </p>
     </div>
   </div>
@@ -457,8 +506,9 @@ window.addEventListener('load', () => {
     <h2>💡 Skills</h2>
     <div class="card-content">
       <ul>
-        <li>Mampu bekerja sama dalam tim</li>
-        <li>Mudah beradaptasi dengan lingkungan</li>
+        <li>Desain Canva</li>
+        <li>Membuat presentasi di WPS</li>
+        <li>Dasar mengedit video/foto</li>
       </ul>
     </div>
   </div>
@@ -467,10 +517,36 @@ window.addEventListener('load', () => {
     <h2>📚 Organizational Experience</h2>
     <div class="card-content">
       <ul>
-        <li>Desain canva</li>
-        <li> bisa membuat ppt di wpps </li>
-        <li>bisa dasar edit video/foto</li>
+        <li>Anggota Pramuka saat Sekolah Dasar</li>
       </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>🎯 Hobbies</h2>
+    <div class="card-content">
+      <div class="hobbies-grid">
+        <div class="hobby-item">
+          <span class="hobby-icon">🎮</span>
+          <div class="hobby-title">Gaming</div>
+          <div class="hobby-desc">Bermain game untuk refreshing dan melatih strategi</div>
+        </div>
+        <div class="hobby-item">
+          <span class="hobby-icon">📚</span>
+          <div class="hobby-title">Membaca</div>
+          <div class="hobby-desc">Membaca buku dan artikel untuk menambah wawasan</div>
+        </div>
+        <div class="hobby-item">
+          <span class="hobby-icon">🎨</span>
+          <div class="hobby-title">Desain</div>
+          <div class="hobby-desc">Membuat desain grafis menggunakan Canva</div>
+        </div>
+        <div class="hobby-item">
+          <span class="hobby-icon">🎵</span>
+          <div class="hobby-title">Musik</div>
+          <div class="hobby-desc">Mendengarkan musik berbagai genre</div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -543,4 +619,4 @@ window.addEventListener('load', () => {
 </div>
 
 </body>
-      </html>
+  </html>

@@ -9,9 +9,9 @@
 
 <style>
 *{
+  box-sizing:border-box;
   margin:0;
   padding:0;
-  box-sizing:border-box;
   font-family:'Poppins',sans-serif;
 }
 
@@ -22,9 +22,9 @@ body{
 
 /* ===== HEADER ===== */
 header{
-  background:linear-gradient(135deg,#020617,#1e293b);
   text-align:center;
   padding:60px 20px;
+  background:linear-gradient(135deg,#1e293b,#020617);
 }
 
 header img{
@@ -41,12 +41,32 @@ header h1{
   font-weight:700;
 }
 
-header p{
-  color:#94a3b8;
-  margin-top:6px;
+.contact-info{
+  margin-top:15px;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:18px;
+  font-size:14px;
+  color:#cbd5f5;
 }
 
-/* ===== CONTENT ===== */
+.contact-info span{
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+
+.contact-info a{
+  color:#38bdf8;
+  text-decoration:none;
+}
+
+.contact-info a:hover{
+  text-decoration:underline;
+}
+
+/* ===== CONTAINER ===== */
 .container{
   max-width:900px;
   margin:auto;
@@ -55,17 +75,17 @@ header p{
 
 .card{
   background:#020617;
-  border-radius:18px;
+  border-radius:16px;
   padding:25px;
   margin-bottom:25px;
-  box-shadow:0 15px 35px rgba(0,0,0,0.45);
+  box-shadow:0 10px 30px rgba(0,0,0,0.4);
 }
 
 .card h2{
+  font-size:20px;
   margin-bottom:15px;
   border-left:5px solid #38bdf8;
   padding-left:12px;
-  font-size:20px;
 }
 
 ul{
@@ -76,11 +96,34 @@ li{
   margin-bottom:8px;
 }
 
-/* ===== BAHASA ===== */
+/* ===== LANGUAGES ===== */
+.language-buttons{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-bottom:20px;
+}
+
+.language-buttons button{
+  padding:8px 14px;
+  border:none;
+  border-radius:8px;
+  background:#1e293b;
+  color:#e5e7eb;
+  cursor:pointer;
+}
+
+.language-buttons button:hover{
+  background:#38bdf8;
+  color:#020617;
+}
+
 .language-box{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
-  gap:25px;
+  display:none;
+  justify-content:center;
+}
+
+.lang{
   text-align:center;
 }
 
@@ -94,16 +137,26 @@ li{
   margin:auto;
   font-weight:600;
   font-size:18px;
-  color:#fff;
+  color:white;
 }
 
-.indonesia{background:conic-gradient(#22c55e 0% 100%, #1e293b 100%);}
-.sunda{background:conic-gradient(#22c55e 0% 100%, #1e293b 100%);}
-.inggris{background:conic-gradient(#38bdf8 0% 15%, #1e293b 15%);}
-.jepang{background:conic-gradient(#f97316 0% 10%, #1e293b 10%);}
-.china{background:conic-gradient(#ef4444 0% 5%, #1e293b 5%);}
+.indonesia{
+  background:conic-gradient(#22c55e 0% 100%, #1e293b 100%);
+}
+.sunda{
+  background:conic-gradient(#22c55e 0% 100%, #1e293b 100%);
+}
+.inggris{
+  background:conic-gradient(#38bdf8 0% 15%, #1e293b 15%);
+}
+.jepang{
+  background:conic-gradient(#f97316 0% 10%, #1e293b 10%);
+}
+.china{
+  background:conic-gradient(#ef4444 0% 5%, #1e293b 5%);
+}
 
-.language-box p{
+.lang p{
   margin-top:10px;
   font-size:14px;
   color:#cbd5f5;
@@ -117,67 +170,109 @@ footer{
   color:#64748b;
 }
 </style>
+
+<script>
+function showLang(id){
+  document.querySelectorAll('.language-box').forEach(box=>{
+    box.style.display='none';
+  });
+  document.getElementById(id).style.display='flex';
+}
+</script>
 </head>
 
 <body>
 
 <header>
-  <img src="1770018338130.png" alt="Foto Galang Tri Ali Alamsah">
+  <img src="1770018338130.png" alt="Foto Galang">
   <h1>Galang Tri Ali Alamsah</h1>
-  <p>Pelajar • Bandung</p>
+  <div class="contact-info">
+    <span>📸 <a href="https://instagram.com/tri891" target="_blank">@tri891</a></span>
+    <span>📞 0851-7997-2033</span>
+    <span>📍 Baleendah, Kabupaten Bandung</span>
+  </div>
 </header>
 
 <div class="container">
 
   <div class="card">
-    <h2>📝 Tentang Saya</h2>
+    <h2>📝 About Me</h2>
     <p>
-      Saya adalah seorang pelajar yang bertanggung jawab, cepat belajar,
-      dan mampu bekerja secara mandiri maupun dalam tim.
+      Saya adalah seorang pelajar yang bertanggung jawab, memiliki minat
+      belajar hal baru, serta mampu bekerja secara mandiri maupun dalam tim.
     </p>
   </div>
 
   <div class="card">
-    <h2>🎓 Pendidikan</h2>
+    <h2>🎓 Education</h2>
     <ul>
-      <li>SDN Bantargedang Tasikmalaya — 2020</li>
-      <li>MTS As-Salam Baleendah — 2023</li>
-      <li>SMA KP Baleendah — 2026</li>
+      <li>SDN Bantargedang Tasikmalaya — Lulus 2020</li>
+      <li>MTS As-Salam Baleendah — Lulus 2023</li>
+      <li>SMA KP Baleendah — Lulus 2026</li>
     </ul>
   </div>
 
   <div class="card">
-    <h2>💡 Keahlian</h2>
+    <h2>💡 Skills</h2>
     <ul>
-      <li>Kerja sama tim</li>
-      <li>Mudah beradaptasi</li>
+      <li>Mampu bekerja sama dalam tim</li>
+      <li>Mudah beradaptasi dengan lingkungan</li>
     </ul>
   </div>
 
   <div class="card">
-    <h2>🗣 Bahasa</h2>
-    <div class="language-box">
-      <div>
+    <h2>📚 Organizational Experience</h2>
+    <ul>
+      <li>Anggota Pramuka saat Sekolah Dasar</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>🗣 Languages</h2>
+
+    <div class="language-buttons">
+      <button onclick="showLang('indonesia')">Indonesia</button>
+      <button onclick="showLang('sunda')">Sunda</button>
+      <button onclick="showLang('inggris')">Inggris</button>
+      <button onclick="showLang('jepang')">Jepang</button>
+      <button onclick="showLang('china')">China</button>
+    </div>
+
+    <div class="language-box" id="indonesia">
+      <div class="lang">
         <div class="circle indonesia">100%</div>
-        <p>Indonesia</p>
-      </div>
-      <div>
-        <div class="circle sunda">100%</div>
-        <p>Sunda</p>
-      </div>
-      <div>
-        <div class="circle inggris">15%</div>
-        <p>Inggris</p>
-      </div>
-      <div>
-        <div class="circle jepang">10%</div>
-        <p>Jepang</p>
-      </div>
-      <div>
-        <div class="circle china">5%</div>
-        <p>China</p>
+        <p>Bahasa Indonesia</p>
       </div>
     </div>
+
+    <div class="language-box" id="sunda">
+      <div class="lang">
+        <div class="circle sunda">100%</div>
+        <p>Bahasa Sunda</p>
+      </div>
+    </div>
+
+    <div class="language-box" id="inggris">
+      <div class="lang">
+        <div class="circle inggris">15%</div>
+        <p>Bahasa Inggris</p>
+      </div>
+    </div>
+
+    <div class="language-box" id="jepang">
+      <div class="lang">
+        <div class="circle jepang">10%</div>
+        <p>Bahasa Jepang</p>
+      </div>
+    </div>
+
+    <div class="language-box" id="china">
+      <div class="lang">
+        <div class="circle china">5%</div>
+        <p>Bahasa Mandarin</p>
+      </div>
+    </div>
+
   </div>
 
 </div>

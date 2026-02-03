@@ -5,169 +5,386 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CV Online - Galang Tri Ali Alamsah</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 
 <style>
 *{
   box-sizing:border-box;
   margin:0;
   padding:0;
-  font-family:'Poppins',sans-serif;
+  font-family:'Inter',sans-serif;
 }
 
 body{
-  background:#0f172a;
-  color:#e5e7eb;
+  background:#0a0e27;
+  color:#e8eaf0;
+  position:relative;
+  overflow-x:hidden;
+}
+
+body::before{
+  content:'';
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:radial-gradient(circle at 20% 30%, rgba(99,102,241,0.15) 0%, transparent 50%),
+             radial-gradient(circle at 80% 70%, rgba(147,51,234,0.1) 0%, transparent 50%);
+  pointer-events:none;
+  z-index:0;
+}
+
+.main-wrapper{
+  position:relative;
+  z-index:1;
 }
 
 /* ===== HEADER ===== */
 header{
   text-align:center;
-  padding:60px 20px;
-  background:linear-gradient(135deg,#1e293b,#020617);
+  padding:80px 20px 60px;
+  background:linear-gradient(135deg,#0f172a 0%,#1e1b4b 100%);
+  position:relative;
+  overflow:hidden;
+}
+
+header::after{
+  content:'';
+  position:absolute;
+  bottom:0;
+  left:0;
+  width:100%;
+  height:2px;
+  background:linear-gradient(90deg,transparent,#6366f1,#8b5cf6,transparent);
+}
+
+.profile-wrapper{
+  position:relative;
+  display:inline-block;
+  margin-bottom:20px;
 }
 
 header img{
-  width:150px;
-  height:150px;
+  width:160px;
+  height:160px;
   object-fit:cover;
   border-radius:50%;
-  border:4px solid #38bdf8;
-  margin-bottom:15px;
+  border:5px solid transparent;
+  background:linear-gradient(#0f172a,#0f172a) padding-box,
+             linear-gradient(135deg,#6366f1,#8b5cf6,#ec4899) border-box;
+  box-shadow:0 20px 60px rgba(99,102,241,0.3);
+  transition:transform 0.3s ease;
+}
+
+.profile-wrapper:hover img{
+  transform:scale(1.05);
 }
 
 header h1{
-  font-size:32px;
+  font-family:'Playfair Display',serif;
+  font-size:42px;
   font-weight:700;
+  background:linear-gradient(135deg,#6366f1,#8b5cf6);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  margin-bottom:8px;
+}
+
+.tagline{
+  font-size:16px;
+  color:#a5b4fc;
+  font-weight:300;
+  letter-spacing:1px;
+  margin-bottom:25px;
 }
 
 .contact-info{
-  margin-top:12px;
+  margin-top:20px;
   display:flex;
   flex-wrap:wrap;
   justify-content:center;
-  gap:16px;
+  gap:25px;
   font-size:14px;
-  color:#cbd5f5;
 }
 
-.contact-info span{
+.contact-item{
   display:flex;
   align-items:center;
-  gap:6px;
+  gap:8px;
+  padding:8px 16px;
+  background:rgba(99,102,241,0.1);
+  border-radius:20px;
+  backdrop-filter:blur(10px);
+  border:1px solid rgba(99,102,241,0.2);
+  transition:all 0.3s ease;
 }
 
-.contact-info a{
-  color:#38bdf8;
+.contact-item:hover{
+  background:rgba(99,102,241,0.2);
+  transform:translateY(-2px);
+}
+
+.contact-item a{
+  color:#a5b4fc;
   text-decoration:none;
+  transition:color 0.3s ease;
 }
 
-.contact-info a:hover{
-  text-decoration:underline;
+.contact-item a:hover{
+  color:#6366f1;
 }
 
 /* ===== CONTAINER ===== */
 .container{
-  max-width:900px;
+  max-width:1100px;
   margin:auto;
-  padding:30px 20px;
+  padding:50px 20px;
 }
 
 .card{
-  background:#020617;
-  border-radius:16px;
-  padding:25px;
-  margin-bottom:25px;
-  box-shadow:0 10px 30px rgba(0,0,0,0.4);
+  background:rgba(15,23,42,0.6);
+  backdrop-filter:blur(20px);
+  border-radius:24px;
+  padding:35px;
+  margin-bottom:30px;
+  border:1px solid rgba(99,102,241,0.15);
+  box-shadow:0 20px 60px rgba(0,0,0,0.3);
+  transition:all 0.4s ease;
+  position:relative;
+  overflow:hidden;
+}
+
+.card::before{
+  content:'';
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:linear-gradient(135deg,rgba(99,102,241,0.05),rgba(139,92,246,0.05));
+  opacity:0;
+  transition:opacity 0.4s ease;
+}
+
+.card:hover{
+  transform:translateY(-5px);
+  border-color:rgba(99,102,241,0.3);
+  box-shadow:0 25px 70px rgba(99,102,241,0.2);
+}
+
+.card:hover::before{
+  opacity:1;
 }
 
 .card h2{
-  font-size:20px;
-  margin-bottom:15px;
-  border-left:5px solid #38bdf8;
-  padding-left:12px;
+  font-size:24px;
+  font-weight:700;
+  margin-bottom:20px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  color:#e8eaf0;
+  position:relative;
+}
+
+.card h2::after{
+  content:'';
+  flex:1;
+  height:2px;
+  background:linear-gradient(90deg,rgba(99,102,241,0.5),transparent);
+  margin-left:15px;
+}
+
+.card-content{
+  position:relative;
+  z-index:1;
 }
 
 ul{
-  padding-left:20px;
+  padding-left:0;
+  list-style:none;
 }
 
 li{
-  margin-bottom:8px;
+  margin-bottom:12px;
+  padding-left:30px;
+  position:relative;
+  line-height:1.6;
+  color:#cbd5e1;
+}
+
+li::before{
+  content:'▹';
+  position:absolute;
+  left:0;
+  color:#6366f1;
+  font-weight:700;
+  font-size:20px;
 }
 
 /* ===== LANGUAGES ===== */
 .language-buttons{
   display:flex;
   flex-wrap:wrap;
-  gap:10px;
-  margin-bottom:20px;
+  gap:12px;
+  margin-bottom:30px;
 }
 
 .language-buttons button{
-  padding:8px 14px;
-  border:none;
-  border-radius:8px;
-  background:#1e293b;
-  color:#e5e7eb;
+  padding:12px 24px;
+  border:2px solid rgba(99,102,241,0.3);
+  border-radius:12px;
+  background:rgba(99,102,241,0.1);
+  color:#e8eaf0;
   cursor:pointer;
+  font-weight:600;
+  font-size:14px;
+  transition:all 0.3s ease;
+  position:relative;
+  overflow:hidden;
+}
+
+.language-buttons button::before{
+  content:'';
+  position:absolute;
+  top:0;
+  left:-100%;
+  width:100%;
+  height:100%;
+  background:linear-gradient(90deg,transparent,rgba(99,102,241,0.3),transparent);
+  transition:left 0.5s ease;
+}
+
+.language-buttons button:hover::before{
+  left:100%;
 }
 
 .language-buttons button:hover{
-  background:#38bdf8;
-  color:#020617;
+  background:linear-gradient(135deg,#6366f1,#8b5cf6);
+  border-color:#6366f1;
+  transform:translateY(-2px);
+  box-shadow:0 10px 30px rgba(99,102,241,0.3);
 }
 
 .language-box{
   display:none;
   justify-content:center;
+  gap:30px;
+  flex-wrap:wrap;
+  animation:fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn{
+  from{
+    opacity:0;
+    transform:translateY(10px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
 }
 
 .lang{
   text-align:center;
 }
 
+.circle-wrapper{
+  position:relative;
+  width:140px;
+  height:140px;
+  margin:auto;
+}
+
 .circle{
-  width:120px;
-  height:120px;
+  width:140px;
+  height:140px;
   border-radius:50%;
   display:flex;
   align-items:center;
   justify-content:center;
-  margin:auto;
-  font-weight:600;
-  font-size:18px;
+  font-weight:700;
+  font-size:24px;
   color:white;
+  position:relative;
+  box-shadow:0 15px 40px rgba(0,0,0,0.3);
+  transition:transform 0.3s ease;
+}
+
+.circle:hover{
+  transform:scale(1.1);
 }
 
 .indonesia{
-  background:conic-gradient(#22c55e 0% 100%, #1e293b 100%);
+  background:conic-gradient(#10b981 0% 100%, #1e293b 100%);
 }
 .sunda{
-  background:conic-gradient(#22c55e 0% 100%, #1e293b 100%);
+  background:conic-gradient(#10b981 0% 100%, #1e293b 100%);
 }
 .inggris{
-  background:conic-gradient(#38bdf8 0% 15%, #1e293b 15%);
+  background:conic-gradient(#3b82f6 0% 15%, #1e293b 15%);
 }
 .jepang{
-  background:conic-gradient(#f97316 0% 10%, #1e293b 10%);
+  background:conic-gradient(#f59e0b 0% 10%, #1e293b 10%);
 }
 .china{
   background:conic-gradient(#ef4444 0% 5%, #1e293b 5%);
 }
 
 .lang p{
-  margin-top:10px;
-  font-size:14px;
-  color:#cbd5f5;
+  margin-top:15px;
+  font-size:15px;
+  font-weight:600;
+  color:#cbd5e1;
+}
+
+/* ===== ABOUT ME SPECIAL ===== */
+.about-text{
+  font-size:16px;
+  line-height:1.8;
+  color:#cbd5e1;
 }
 
 /* ===== FOOTER ===== */
 footer{
   text-align:center;
-  padding:20px;
+  padding:40px 20px;
   font-size:14px;
   color:#64748b;
+  background:rgba(15,23,42,0.4);
+  backdrop-filter:blur(10px);
+  border-top:1px solid rgba(99,102,241,0.15);
+}
+
+.footer-heart{
+  color:#ec4899;
+  animation:heartbeat 1.5s ease infinite;
+}
+
+@keyframes heartbeat{
+  0%, 100%{
+    transform:scale(1);
+  }
+  50%{
+    transform:scale(1.1);
+  }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width:768px){
+  header h1{
+    font-size:32px;
+  }
+  
+  .card{
+    padding:25px;
+  }
+  
+  .contact-info{
+    gap:15px;
+  }
 }
 </style>
 
@@ -176,20 +393,40 @@ function showLang(id){
   document.querySelectorAll('.language-box').forEach(box=>{
     box.style.display='none';
   });
-  document.getElementById(id).style.display='flex';
+  const selectedBox = document.getElementById(id);
+  selectedBox.style.display='flex';
 }
+
+// Auto show first language
+window.addEventListener('load', () => {
+  showLang('indonesia');
+});
 </script>
 </head>
 
 <body>
 
+<div class="main-wrapper">
+
 <header>
-  <img src="1770018338130.png" alt="Foto Galang">
+  <div class="profile-wrapper">
+    <img src="1770018338130.png" alt="Foto Galang">
+  </div>
   <h1>Galang Tri Ali Alamsah</h1>
+  <p class="tagline">Student • Learner • Team Player</p>
   <div class="contact-info">
-    <span>📸 <a href="https://instagram.com/tri891" target="_blank">@tri891</a></span>
-    <span>📍 Baleendah, Kabupaten Bandung</span>
-    <span>📞 0851-7997-2033</span>
+    <div class="contact-item">
+      <span>📸</span>
+      <a href="https://instagram.com/tri891" target="_blank">@tri891</a>
+    </div>
+    <div class="contact-item">
+      <span>📞</span>
+      <span>0851-7997-2033</span>
+    </div>
+    <div class="contact-item">
+      <span>📍</span>
+      <span>Baleendah, Kabupaten Bandung</span>
+    </div>
   </div>
 </header>
 
@@ -197,106 +434,111 @@ function showLang(id){
 
   <div class="card">
     <h2>📝 About Me</h2>
-    <p>
-      Saya adalah seorang pelajar yang bertanggung jawab, memiliki minat belajar
-      hal baru, serta mampu bekerja secara mandiri maupun dalam tim.
-    </p>
-  </div>
-
-  <div class="card">
-    <h2>👤 Personal Data</h2>
-    <ul>
-      <li>Tahun Lahir: 2007</li>
-      <li>Hobi: Bermain game, membaca komik, mendengarkan musik</li>
-    </ul>
+    <div class="card-content">
+      <p class="about-text">
+        Saya adalah seorang pelajar yang bertanggung jawab, memiliki minat
+        belajar hal baru, serta mampu bekerja secara mandiri maupun dalam tim.
+      </p>
+    </div>
   </div>
 
   <div class="card">
     <h2>🎓 Education</h2>
-    <ul>
-      <li>SDN Bantargedang Tasikmalaya — Lulus 2020</li>
-      <li>MTS As-Salam Baleendah — Lulus 2023</li>
-      <li>SMA KP Baleendah — Lulus 2026</li>
-    </ul>
+    <div class="card-content">
+      <ul>
+        <li>SDN Bantargedang Tasikmalaya — Lulus 2020</li>
+        <li>MTS As-Salam Baleendah — Lulus 2023</li>
+        <li>SMA KP Baleendah — Lulus 2026</li>
+      </ul>
+    </div>
   </div>
 
   <div class="card">
     <h2>💡 Skills</h2>
-    <ul>
-      <li>Mampu bekerja sama dalam tim</li>
-      <li>Mudah beradaptasi dengan lingkungan</li>
-    </ul>
+    <div class="card-content">
+      <ul>
+        <li>Mampu bekerja sama dalam tim</li>
+        <li>Mudah beradaptasi dengan lingkungan</li>
+      </ul>
+    </div>
   </div>
 
   <div class="card">
     <h2>📚 Organizational Experience</h2>
-    <ul>
-      <li>Anggota Pramuka – SD (2018–2020)</li>
-      <li>Tidak ada pengalaman organisasi – SMP</li>
-      <li>Tidak ada pengalaman organisasi – SMA</li>
-    </ul>
-  </div>
-
-  <div class="card">
-    <h2>📜 Certificates</h2>
-    <ul>
-      <li>Belum memiliki sertifikat</li>
-    </ul>
+    <div class="card-content">
+      <ul>
+        <li>Anggota Pramuka saat Sekolah Dasar</li>
+      </ul>
+    </div>
   </div>
 
   <div class="card">
     <h2>🗣 Languages</h2>
+    <div class="card-content">
 
-    <div class="language-buttons">
-      <button onclick="showLang('indonesia')">Indonesia</button>
-      <button onclick="showLang('sunda')">Sunda</button>
-      <button onclick="showLang('inggris')">Inggris</button>
-      <button onclick="showLang('jepang')">Jepang</button>
-      <button onclick="showLang('china')">China</button>
-    </div>
-
-    <div class="language-box" id="indonesia">
-      <div class="lang">
-        <div class="circle indonesia">100%</div>
-        <p>Bahasa Indonesia</p>
+      <div class="language-buttons">
+        <button onclick="showLang('indonesia')">Indonesia</button>
+        <button onclick="showLang('sunda')">Sunda</button>
+        <button onclick="showLang('inggris')">Inggris</button>
+        <button onclick="showLang('jepang')">Jepang</button>
+        <button onclick="showLang('china')">China</button>
       </div>
-    </div>
 
-    <div class="language-box" id="sunda">
-      <div class="lang">
-        <div class="circle sunda">100%</div>
-        <p>Bahasa Sunda</p>
+      <div class="language-box" id="indonesia">
+        <div class="lang">
+          <div class="circle-wrapper">
+            <div class="circle indonesia">100%</div>
+          </div>
+          <p>Bahasa Indonesia</p>
+        </div>
       </div>
-    </div>
 
-    <div class="language-box" id="inggris">
-      <div class="lang">
-        <div class="circle inggris">15%</div>
-        <p>Bahasa Inggris</p>
+      <div class="language-box" id="sunda">
+        <div class="lang">
+          <div class="circle-wrapper">
+            <div class="circle sunda">100%</div>
+          </div>
+          <p>Bahasa Sunda</p>
+        </div>
       </div>
-    </div>
 
-    <div class="language-box" id="jepang">
-      <div class="lang">
-        <div class="circle jepang">10%</div>
-        <p>Bahasa Jepang</p>
+      <div class="language-box" id="inggris">
+        <div class="lang">
+          <div class="circle-wrapper">
+            <div class="circle inggris">15%</div>
+          </div>
+          <p>Bahasa Inggris</p>
+        </div>
       </div>
-    </div>
 
-    <div class="language-box" id="china">
-      <div class="lang">
-        <div class="circle china">5%</div>
-        <p>Bahasa Mandarin</p>
+      <div class="language-box" id="jepang">
+        <div class="lang">
+          <div class="circle-wrapper">
+            <div class="circle jepang">10%</div>
+          </div>
+          <p>Bahasa Jepang</p>
+        </div>
       </div>
-    </div>
 
+      <div class="language-box" id="china">
+        <div class="lang">
+          <div class="circle-wrapper">
+            <div class="circle china">5%</div>
+          </div>
+          <p>Bahasa Mandarin</p>
+        </div>
+      </div>
+
+    </div>
   </div>
 
 </div>
 
 <footer>
-  © 2026 • Galang Tri Ali Alamsah
+  © 2026 • Dibuat dengan <span class="footer-heart">♥</span> oleh Galang Tri Ali Alamsah
 </footer>
 
+</div>
+
 </body>
-</html>
+      </html>

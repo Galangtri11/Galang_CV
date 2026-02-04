@@ -3,17 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CV One Piece | Galang</title>
+<title>Portfolio One Piece | Galang</title>
 <link href="https://fonts.googleapis.com/css2?family=Pirata+One&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 body{font-family:'Poppins',sans-serif;background:#0b1c2d;color:#fff;overflow-x:hidden;position:relative;}
 
-/* LAUT & KAPAL */
+/* LAUT */
 body::before{
   content:'';
   position:fixed;top:0;left:0;width:200%;height:100%;
-  background:url('https://i.ibb.co/FmH1RjZ/wave.png') repeat-x;
+  background:url('assets/wave.png') repeat-x;
   opacity:0.15;
   animation:wave 40s linear infinite;
   z-index:-1;
@@ -28,41 +28,30 @@ body::before{
 /* HERO BOUNTY */
 .bounty{background:#fdf3d7;color:#000;border:8px solid #3a2a18;border-radius:14px;padding:25px;text-align:center;box-shadow:0 0 30px rgba(0,0,0,.7);cursor:pointer;transition:.3s;position:relative;}
 .bounty:hover{box-shadow:0 0 60px #fffc00,0 0 120px #fffc00;}
-.bounty::after{content:'';position:absolute;top:-20px;left:-20px;width:calc(100%+40px);height:calc(100%+40px);border:2px solid #fffc00;border-radius:16px;opacity:0;transition:.4s;}
-.bounty:hover::after{opacity:0.7;}
 .bounty img{width:200px;border:6px solid #3a2a18;border-radius:10px;margin-bottom:15px;}
 .bounty h1{font-family:'Pirata One';font-size:36px;}
 .info{font-size:14px;margin-top:10px;}
 .bounty-price{font-family:'Pirata One';font-size:28px;margin-top:10px;transition:.5s;}
 
-/* CARD POIN */
-.card-section{max-width:900px;margin:60px auto;display:flex;flex-wrap:wrap;gap:20px;justify-content:center;}
-.card{background:rgba(255,255,255,0.1);border-radius:15px;padding:20px;width:280px;position:relative;cursor:pointer;overflow:hidden;transition:.3s;}
+/* CARD POIN VERTIKAL */
+.card-section{
+  max-width:600px;margin:60px auto;display:flex;flex-direction:column;gap:20px;
+}
+.card{background:rgba(255,255,255,0.1);border-radius:15px;padding:20px;width:100%;position:relative;cursor:pointer;overflow:hidden;transition:.3s;}
 .card:hover{transform:scale(1.05);box-shadow:0 0 25px #f4c430;}
 .card img{width:120px;float:right;border-radius:10px;margin-left:10px;}
 .card h3{font-family:'Pirata One';color:#f4c430;margin-bottom:10px;}
 .card p{display:none;margin-top:10px;color:#fff;font-size:14px;line-height:1.4;}
 
-/* SKILL CARDS */
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:20px;margin-top:20px;}
-.card-skill{background:rgba(255,255,255,0.1);padding:20px;border-radius:15px;cursor:pointer;position:relative;overflow:hidden;text-align:center;transition:0.3s;}
-.card-skill:hover{transform:scale(1.05) rotate(-1deg);box-shadow:0 0 25px #f4c430;}
-.ripple{position:absolute;border-radius:50%;background:rgba(255,255,255,0.6);transform:scale(0);animation:ripple 0.6s linear;}
-@keyframes ripple{to{transform:scale(4);opacity:0;}}
-
-/* LANGUAGE BAR */
-.language-box{max-width:600px;margin:auto;display:none;}
-.lang{margin-bottom:20px;display:flex;align-items:center;justify-content:flex-start;}
+/* SKILL & LANGUAGE */
+.language-box,.skill-section{max-width:600px;margin:40px auto;display:flex;flex-direction:column;gap:20px;}
+.lang{display:flex;align-items:center;}
 .bar{background:rgba(255,255,255,.2);height:14px;border-radius:10px;overflow:hidden;margin-left:10px;flex:1;position:relative;}
 .progress{height:100%;width:0;border-radius:10px;position:relative;overflow:hidden;background:linear-gradient(to right,#00f5ff,#00ffd1);}
 .progress span{position:absolute;right:0;top:-20px;color:#f4c430;font-size:12px;font-weight:bold;}
 
 /* FOOTER */
 footer{text-align:center;padding:20px;opacity:.7;}
-
-/* BUTTONS */
-.btn-show{background:#f4c430;color:#000;border:none;padding:8px 12px;margin-top:10px;border-radius:8px;cursor:pointer;transition:.3s;}
-.btn-show:hover{background:#ffd700;}
 </style>
 </head>
 <body>
@@ -72,7 +61,7 @@ footer{text-align:center;padding:20px;opacity:.7;}
 
 <!-- HERO BOUNTY -->
 <section class="bounty" id="bountyBox">
-  <img src="1770018338130.png" alt="Foto Galang">
+  <img src="foto.jpg" alt="Foto Galang">
   <h1>GALANG TRI ALI ALAMSAH</h1>
   <div class="info">
     🎂 Tahun Lahir: 2007<br>
@@ -81,138 +70,85 @@ footer{text-align:center;padding:20px;opacity:.7;}
     📸 Instagram: @tri891
   </div>
   <div class="bounty-price" id="bounty">B$ 150.000.000</div>
-  <small>(Klik poster untuk naik bounty)</small>
 </section>
 
-<!-- CARD POIN -->
+<!-- CARD POIN VERTIKAL -->
 <div class="card-section">
   <div class="card" data-character="luffy">
     <h3>Tentang Diri</h3>
-    <button class="btn-show">Show Info</button>
     <p>Saya adalah seorang pelajar yang memiliki minat untuk belajar hal baru, bertanggung jawab, dan mampu bekerja secara mandiri maupun dalam tim.</p>
-    <img src="https://i.ibb.co/5nqfM39/luffy.png" alt="Luffy">
+    <img src="characters/luffy.png" alt="Luffy">
   </div>
-
   <div class="card" data-character="zoro">
     <h3>Hobby</h3>
-    <button class="btn-show">Show Info</button>
     <p>🎮 Bermain game<br>📚 Membaca komik<br>🎧 Mendengarkan musik</p>
-    <img src="https://i.ibb.co/K2fYzXY/zoro.png" alt="Zoro">
+    <img src="characters/zoro.png" alt="Zoro">
   </div>
-
   <div class="card" data-character="robin">
     <h3>Pendidikan</h3>
-    <button class="btn-show">Show Info</button>
     <p>SDN Bantargedang Tasikmalaya – Lulus 2020<br>MTS AS-Baleendah – Lulus 2023<br>SMA KP Baleendah – Lulus 2026</p>
-    <img src="https://i.ibb.co/q5CqxXZ/robin.png" alt="Nico Robin">
+    <img src="characters/robin.png" alt="Nico Robin">
   </div>
-
   <div class="card" data-character="brook">
     <h3>Pengalaman</h3>
-    <button class="btn-show">Show Info</button>
     <p>Eskul Bahasa Inggris SMA – 2024</p>
-    <img src="https://i.ibb.co/6w5Y5sX/brook.png" alt="Brook">
+    <img src="characters/brook.png" alt="Brook">
   </div>
-
   <div class="card" data-character="sanji">
     <h3>Skill</h3>
-    <button class="btn-show">Show Info</button>
     <p>🎨 Desain Canva<br>📊 PPT (WPS)<br>🎬 Edit Foto/Video Dasar</p>
-    <img src="https://i.ibb.co/3B3Z0qF/sanji.png" alt="Sanji">
+    <img src="characters/sanji.png" alt="Sanji">
   </div>
-
   <div class="card" data-character="chopper">
     <h3>Sertifikat</h3>
-    <button class="btn-show">Show Info</button>
     <p>Belum memiliki sertifikat</p>
-    <img src="https://i.ibb.co/NyFptfD/chopper.png" alt="Chopper">
+    <img src="characters/chopper.png" alt="Chopper">
   </div>
 </div>
 
 <!-- LANGUAGE -->
-<section>
-  <button class="btn-show" id="toggleLang">Show Languages</button>
-  <div class="language-box" id="languageBox">
-    <div class="lang">Indonesia
-      <div class="bar"><div class="progress indo" data="100%"><span>0%</span></div></div>
-    </div>
-    <div class="lang">Sunda
-      <div class="bar"><div class="progress sunda" data="100%"><span>0%</span></div></div>
-    </div>
-    <div class="lang">Inggris
-      <div class="bar"><div class="progress inggris" data="15%"><span>0%</span></div></div>
-    </div>
-    <div class="lang">Chinese
-      <div class="bar"><div class="progress china" data="5%"><span>0%</span></div></div>
-    </div>
+<div class="language-box" id="languageBox">
+  <div class="lang">Indonesia
+    <div class="bar"><div class="progress indo" data="100%"><span>0%</span></div></div>
   </div>
-</section>
+  <div class="lang">Sunda
+    <div class="bar"><div class="progress sunda" data="100%"><span>0%</span></div></div>
+  </div>
+  <div class="lang">Inggris
+    <div class="bar"><div class="progress inggris" data="15%"><span>0%</span></div></div>
+  </div>
+  <div class="lang">Chinese
+    <div class="bar"><div class="progress china" data="5%"><span>0%</span></div></div>
+  </div>
+</div>
 
-<footer>🏴‍☠️ One Piece CV • Galang © 2026</footer>
+<footer>🏴‍☠️ One Piece Portfolio • Galang © 2026</footer>
 
 <!-- MUSIK -->
 <audio id="bgm" loop>
-  <source src="one_piece_we_are.mp3" type="audio/mpeg">
+  <source src="weare.mp3" type="audio/mpeg">
 </audio>
 <button id="musicBtn" style="position:fixed;bottom:20px;right:20px;padding:12px;border:none;border-radius:50%;background:#f4c430;font-size:20px;cursor:pointer;z-index:999;">🎵</button>
 
 <script>
-// Bounty click + Haki glow
-let bounty=150;
-const bountyText=document.getElementById('bounty');
-const bountyBox=document.getElementById('bountyBox');
-bountyBox.onclick=()=>{
-  bounty+=50;
-  bountyText.innerText=`B$ ${bounty}.000.000`;
-  bountyBox.style.transform='scale(1.1)';
-  bountyBox.style.boxShadow='0 0 80px #fffc00,0 0 150px #fffc00';
-  setTimeout(()=>{
-    bountyBox.style.transform='scale(1)';
-    bountyBox.style.boxShadow='0 0 30px rgba(0,0,0,.7)';
-  },300);
-};
-
-// Scroll animation
-const obs=new IntersectionObserver(e=>{
-  e.forEach(x=>{
-    if(x.isIntersecting){
-      x.target.style.opacity=1;
-      x.target.style.transform='translateY(0)';
-      x.target.style.transition='1s';
-    }
-  });
-});
-document.querySelectorAll('.card-section').forEach(s=>obs.observe(s));
-
-// Card show/hide description + ripple
-document.querySelectorAll('.btn-show').forEach(btn=>{
-  btn.addEventListener('click', function(){
-    const p=this.parentElement.querySelector('p') || document.getElementById('languageBox');
-    if(p.style.display==='block'){
-      p.style.display='none';
-    } else {
-      p.style.display='block';
-      // ripple effect
-      const ripple=document.createElement('span');
-      ripple.classList.add('ripple');
-      this.appendChild(ripple);
-      const rect=this.getBoundingClientRect();
-      ripple.style.left=event.clientX-rect.left+'px';
-      ripple.style.top=event.clientY-rect.top+'px';
-      setTimeout(()=>ripple.remove(),600);
-    }
+// Card click → toggle deskripsi + Haki glow
+document.querySelectorAll('.card').forEach(card=>{
+  card.addEventListener('click',()=>{
+    const p=card.querySelector('p');
+    if(p.style.display==='block'){p.style.display='none';card.style.boxShadow='0 0 25px #f4c430';}
+    else{p.style.display='block';card.style.boxShadow='0 0 50px #fffc00,0 0 100px #fffc00';}
   });
 });
 
 // Language bar animation
 document.querySelectorAll('.progress').forEach(p=>{
-  const target = parseInt(p.getAttribute('data'));
-  const span = p.querySelector('span');
+  const target=parseInt(p.getAttribute('data'));
+  const span=p.querySelector('span');
   let width=0;
-  const interval = setInterval(()=>{
+  const interval=setInterval(()=>{
     if(width>=target){width=target;clearInterval(interval);}
-    p.style.width = width+'%';
-    span.innerText = width+'%';
+    p.style.width=width+'%';
+    span.innerText=width+'%';
     width++;
   },20);
 });
@@ -236,12 +172,16 @@ function createLightning(){
 }
 setInterval(createLightning,500);
 
-// Toggle language box
-document.getElementById('toggleLang').onclick=()=>{
-  const langBox=document.getElementById('languageBox');
-  if(langBox.style.display==='block'){langBox.style.display='none';}
-  else langBox.style.display='block';
-}
+// Bounty click
+let bounty=150;
+const bountyText=document.getElementById('bounty');
+const bountyBox=document.getElementById('bountyBox');
+bountyBox.onclick=()=>{
+  bounty+=50;
+  bountyText.innerText=`B$ ${bounty}.000.000`;
+  bountyBox.style.transform='scale(1.1)';
+  setTimeout(()=>bountyBox.style.transform='scale(1)',300);
+};
 </script>
 </body>
 </html>

@@ -3,114 +3,45 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portofolio One Piece | Galang</title>
-
+<title>Portfolio One Piece | Galang</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Pirata+One&family=Poppins:wght@300;400;600&display=swap');
 *{margin:0;padding:0;box-sizing:border-box;}
-body{
-  font-family:'Poppins',sans-serif;
-  background:#0b1c2d;
-  color:#fff;
-  overflow-x:hidden;
-  position:relative;
-}
+body{font-family:'Poppins',sans-serif;background:#0b1c2d;color:#fff;overflow-x:hidden;position:relative;}
 
-/* WAVES */
-body::before{
-  content:'';
-  position:fixed; top:0; left:0;
-  width:200%; height:100%;
-  background:url('https://i.ibb.co/FmH1RjZ/wave.png') repeat-x;
-  opacity:0.12;
-  animation:wave 40s linear infinite;
-  z-index:-1;
-}
+/* WAVES & KAPAL */
+body::before{content:'';position:fixed;top:0;left:0;width:200%;height:100%;background:url('https://i.ibb.co/FmH1RjZ/wave.png') repeat-x;opacity:0.12;animation:wave 40s linear infinite;z-index:-1;}
 @keyframes wave{from{background-position:0 0;} to{background-position:-2000px 0;}}
 
 /* PETIR ⚡ */
-.petir{
-  position:fixed;top:0;left:0;width:100%;height:100%;
-  pointer-events:none; z-index:998;
-}
-.lightning{
-  position:absolute; width:4px; height:120px;
-  background:linear-gradient(to bottom, #fff, #00f5ff);
-  opacity:0;
-  animation:flash 2s infinite;
-}
+.petir{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:998;}
+.lightning{position:absolute;width:4px;height:120px;background:linear-gradient(to bottom,#fff,#00f5ff);opacity:0;animation:flash 2s infinite;}
 @keyframes flash{0%,20%,100%{opacity:0;}10%,15%{opacity:1;}}
 
 /* SECTION */
-section{
-  padding:60px 20px; max-width:900px; margin:auto;
-  opacity:0; transform:translateY(40px);
-}
+section{padding:60px 20px;max-width:900px;margin:auto;opacity:0;transform:translateY(40px);}
 h2{font-family:'Pirata One';font-size:34px;margin-bottom:20px;color:#f4c430;text-align:center;}
 
-/* BOUNTY POSTER + HAKI */
-.bounty{
-  background:#fdf3d7;color:#000;border:8px solid #3a2a18;
-  border-radius:14px;padding:25px;text-align:center;
-  box-shadow:0 0 30px rgba(0,0,0,.7);
-  cursor:pointer; transition:.3s;
-  position:relative;
-}
+/* HERO BOUNTY + HAKI */
+.bounty{background:#fdf3d7;color:#000;border:8px solid #3a2a18;border-radius:14px;padding:25px;text-align:center;box-shadow:0 0 30px rgba(0,0,0,.7);cursor:pointer;transition:.3s;position:relative;}
 .bounty:hover{box-shadow:0 0 60px #fffc00,0 0 120px #fffc00;}
-.bounty::after{
-  content:'';position:absolute;top:-20px;left:-20px;width:calc(100% + 40px);height:calc(100% + 40px);
-  border:2px solid #fffc00; border-radius:16px;
-  opacity:0; transition:.4s;
-}
+.bounty::after{content:'';position:absolute;top:-20px;left:-20px;width:calc(100%+40px);height:calc(100%+40px);border:2px solid #fffc00;border-radius:16px;opacity:0;transition:.4s;}
 .bounty:hover::after{opacity:0.7;}
 .bounty img{width:200px;border:6px solid #3a2a18;border-radius:10px;margin-bottom:15px;}
 .bounty h1{font-family:'Pirata One';font-size:36px;}
 .info{font-size:14px;margin-top:10px;}
-.bounty-price{font-family:'Pirata One';font-size:28px;margin-top:10px;}
+.bounty-price{font-family:'Pirata One';font-size:28px;margin-top:10px;transition:.5s;}
 
-/* SKILL CARDS */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-  gap:20px;
-  margin-top:20px;
-}
-.card{
-  background:rgba(255,255,255,0.1);
-  padding:20px;
-  border-radius:15px;
-  cursor:pointer;
-  position:relative;
-  overflow:hidden;
-  text-align:center;
-  transition:0.3s;
-}
-.card:hover{
-  transform:scale(1.05) rotate(-1deg);
-  box-shadow:0 0 25px #f4c430;
-}
-.card::before{
-  content:'';
-  position:absolute;
-  width:100%;height:100%;
-  top:-100%;left:0;
-  background:linear-gradient(180deg,transparent,#f4c430);
-  opacity:0.2;
-  transition:0.4s;
-}
+/* GRID SKILL */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:20px;margin-top:20px;}
+.card{background:rgba(255,255,255,0.1);padding:20px;border-radius:15px;cursor:pointer;position:relative;overflow:hidden;text-align:center;transition:0.3s;}
+.card:hover{transform:scale(1.05) rotate(-1deg);box-shadow:0 0 25px #f4c430;}
+.card::before{content:'';position:absolute;width:100%;height:100%;top:-100%;left:0;background:linear-gradient(180deg,transparent,#f4c430);opacity:0.2;transition:0.4s;}
 .card:hover::before{top:0;}
-
-/* RIPPLE */
-.ripple{
-  position:absolute;
-  border-radius:50%;
-  background:rgba(255,255,255,0.6);
-  transform:scale(0);
-  animation:ripple 0.6s linear;
-}
+.ripple{position:absolute;border-radius:50%;background:rgba(255,255,255,0.6);transform:scale(0);animation:ripple 0.6s linear;}
 @keyframes ripple{to{transform:scale(4);opacity:0;}}
 
-/* LANGUAGE */
+/* LANGUAGE BAR */
 .language-box{max-width:600px;margin:auto;}
 .lang{margin-bottom:20px;display:flex;align-items:center;justify-content:space-between;}
 .bar{background:rgba(255,255,255,.2);height:14px;border-radius:10px;overflow:hidden;margin-left:10px;flex:1;}
@@ -125,13 +56,12 @@ h2{font-family:'Pirata One';font-size:34px;margin-bottom:20px;color:#f4c430;text
 footer{text-align:center;padding:20px;opacity:.7;}
 </style>
 </head>
-
 <body>
 
-<!-- PETIR ELEMENT -->
+<!-- PETIR -->
 <div class="petir" id="petirContainer"></div>
 
-<!-- BOUNTY / HERO -->
+<!-- HERO BOUNTY -->
 <section class="bounty" id="bountyBox">
   <img src="1770018338130.png" alt="Foto Galang">
   <h1>GALANG TRI ALI ALAMSAH</h1>
@@ -148,8 +78,7 @@ footer{text-align:center;padding:20px;opacity:.7;}
 <!-- ABOUT -->
 <section>
   <h2>Tentang Diri</h2>
-  <p>Saya adalah seorang pelajar yang memiliki minat untuk belajar hal baru,
-  bertanggung jawab, dan mampu bekerja secara mandiri maupun dalam tim.</p>
+  <p>Saya adalah seorang pelajar yang memiliki minat untuk belajar hal baru, bertanggung jawab, dan mampu bekerja secara mandiri maupun dalam tim.</p>
 </section>
 
 <!-- HOBBY -->
@@ -220,17 +149,16 @@ footer{text-align:center;padding:20px;opacity:.7;}
 <!-- FOOTER -->
 <footer>🏴‍☠️ One Piece Portfolio • Galang © 2026</footer>
 
-<!-- MUSIK ONE PIECE -->
+<!-- MUSIK -->
 <audio id="bgm" loop>
   <source src="onepiece.mp3" type="audio/mpeg">
 </audio>
-<button id="musicBtn"
-style="position:fixed;bottom:20px;right:20px;padding:12px;border:none;border-radius:50%;background:#f4c430;font-size:20px;cursor:pointer;z-index:999;">🎵</button>
+<button id="musicBtn" style="position:fixed;bottom:20px;right:20px;padding:12px;border:none;border-radius:50%;background:#f4c430;font-size:20px;cursor:pointer;z-index:999;">🎵</button>
 
 <script>
 // Bounty click
-let bounty = 150;
-const bountyText = document.getElementById('bounty');
+let bounty=150;
+const bountyText=document.getElementById('bounty');
 document.getElementById('bountyBox').onclick=()=>{
   bounty+=50;
   bountyText.innerText=`B$ ${bounty}.000.000`;
@@ -239,7 +167,7 @@ document.getElementById('bountyBox').onclick=()=>{
 };
 
 // Scroll animation
-const obs = new IntersectionObserver(e=>{
+const obs=new IntersectionObserver(e=>{
   e.forEach(x=>{
     if(x.isIntersecting){
       x.target.style.opacity=1;
@@ -250,7 +178,7 @@ const obs = new IntersectionObserver(e=>{
 });
 document.querySelectorAll('section').forEach(s=>obs.observe(s));
 
-// Skill ripple effect
+// Skill ripple
 document.querySelectorAll('.card').forEach(card=>{
   card.addEventListener('click',function(e){
     const ripple=document.createElement('span');
@@ -264,21 +192,17 @@ document.querySelectorAll('.card').forEach(card=>{
 });
 
 // Language bar
-document.querySelectorAll('.progress').forEach(p=>{
-  p.style.setProperty('--target',p.getAttribute('data'));
-});
+document.querySelectorAll('.progress').forEach(p=>{p.style.setProperty('--target',p.getAttribute('data'));});
 
 // Musik toggle
-const music = document.getElementById('bgm');
-const btn = document.getElementById('musicBtn');
-btn.onclick=()=>{
-  if(music.paused){music.play(); btn.innerHTML='🔊';}else{music.pause(); btn.innerHTML='🎵';}
-};
+const music=document.getElementById('bgm');
+const btn=document.getElementById('musicBtn');
+btn.onclick=()=>{if(music.paused){music.play();btn.innerHTML='🔊';}else{music.pause();btn.innerHTML='🎵';}}
 
 // Petir generator
-const container = document.getElementById('petirContainer');
+const container=document.getElementById('petirContainer');
 function createLightning(){
-  const bolt = document.createElement('div');
+  const bolt=document.createElement('div');
   bolt.classList.add('lightning');
   bolt.style.left=Math.random()*window.innerWidth+'px';
   bolt.style.top=Math.random()*window.innerHeight+'px';
@@ -289,6 +213,5 @@ function createLightning(){
 }
 setInterval(createLightning,500);
 </script>
-
 </body>
-</html>
+  </html>

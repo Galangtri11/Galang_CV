@@ -3,20 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CV Online</title>
+<title>CV Online - Galang</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
 *{
   box-sizing:border-box;
   margin:0;
   padding:0;
-  font-family:Arial, sans-serif;
+  font-family:'Poppins',sans-serif;
 }
 
-/* ===== BODY ===== */
 body{
-  background:linear-gradient(135deg,#0f172a,#1e293b);
-  padding:20px;
+  background:#0f172a;
   color:#e5e7eb;
 }
 
@@ -24,63 +24,63 @@ body{
 .container{
   max-width:900px;
   margin:auto;
-  background:#020617;
-  padding:25px;
-  border-radius:18px;
-  box-shadow:0 15px 40px rgba(0,0,0,.5);
+  padding:20px;
 }
 
 /* ===== HEADER ===== */
 header{
   text-align:center;
+  padding:50px 20px;
+  background:linear-gradient(135deg,#1e293b,#020617);
+  border-radius:0 0 30px 30px;
 }
 
 header img{
-  width:150px;
-  height:150px;
+  width:160px;
+  height:160px;
   object-fit:cover;
   border-radius:50%;
   border:4px solid #6366f1;
-  box-shadow:0 8px 20px rgba(0,0,0,.35);
+  box-shadow:0 10px 25px rgba(0,0,0,.4);
 }
 
 header h1{
-  margin:15px 0 8px;
+  margin-top:15px;
+  font-size:30px;
 }
 
 .contact{
+  margin-top:15px;
   display:flex;
-  justify-content:center;
-  gap:15px;
   flex-wrap:wrap;
+  justify-content:center;
+  gap:12px;
   font-size:14px;
 }
 
 .contact span{
   background:#020617;
-  padding:6px 12px;
+  padding:8px 14px;
   border-radius:20px;
 }
 
 /* ===== CARD ===== */
 .card{
-  margin-top:25px;
-  padding:18px;
-  border-radius:14px;
   background:#020617;
-  box-shadow:0 8px 25px rgba(0,0,0,.4);
+  margin-top:25px;
+  padding:20px;
+  border-radius:18px;
+  box-shadow:0 10px 30px rgba(0,0,0,.4);
+}
+
+.clickable{
+  display:flex;
+  justify-content:space-between;
+  cursor:pointer;
 }
 
 .card h2{
-  margin-bottom:10px;
-}
-
-/* ===== CLICKABLE ===== */
-.clickable{
-  cursor:pointer;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+  font-size:20px;
 }
 
 .content{
@@ -98,65 +98,66 @@ header h1{
   max-height:500px;
   opacity:1;
   transform:translateY(0);
-  margin-top:10px;
+  margin-top:15px;
+}
+
+ul{
+  padding-left:20px;
 }
 
 /* ===== LANGUAGE ===== */
+.lang-buttons{
+  margin-bottom:15px;
+}
+
 .lang-buttons button{
-  margin:5px;
   padding:8px 14px;
   border:none;
   border-radius:20px;
+  background:#1e293b;
+  color:white;
   cursor:pointer;
-  background:#6366f1;
-  color:#fff;
+  margin:5px;
 }
 
 .language-box{
   display:none;
   justify-content:center;
-  margin-top:20px;
 }
 
-/* ===== DIAGRAM ===== */
+.lang{
+  text-align:center;
+}
+
 .circle{
   --percent:0;
-  width:150px;
-  height:150px;
+  width:140px;
+  height:140px;
   border-radius:50%;
   display:flex;
   align-items:center;
   justify-content:center;
-  font-weight:bold;
   font-size:22px;
-  color:#020617;
-  position:relative;
+  font-weight:700;
   background:conic-gradient(
     var(--color) calc(var(--percent)*1%),
     #e5e7eb 0
   );
 }
 
-/* WARNA BENDERA */
-.indonesia{ --color:#ef4444; }   /* merah */
-.inggris{ --color:#1e3a8a; }     /* biru */
-.jepang{
-  --color:#ffffff;
-}
-.jepang::after{
-  content:'';
-  position:absolute;
-  width:55px;
-  height:55px;
-  background:#dc2626;
-  border-radius:50%;
+.indonesia{ --color:#ef4444; }
+.inggris{ --color:#1e3a8a; }
+.jepang{ --color:#dc2626; }
+.china{ --color:#b91c1c; }
+
+.lang p{
+  margin-top:10px;
+  font-weight:600;
 }
 </style>
 </head>
 
 <body>
-
-<div class="container">
 
 <header>
   <img src="1770018338130.png">
@@ -169,82 +170,102 @@ header h1{
   </div>
 </header>
 
+<div class="container">
+
 <!-- ABOUT -->
 <div class="card">
-  <h2 class="clickable" onclick="toggleSection('about')">
+  <h2 class="clickable" onclick="toggle('about')">
     📝 About Me <span id="icon-about">➕</span>
   </h2>
   <div id="about" class="content hidden">
-    Saya adalah pelajar yang bertanggung jawab, mudah beradaptasi,
-    mampu bekerja mandiri maupun tim.
+    Saya adalah pelajar yang bertanggung jawab, mudah beradaptasi, serta mampu bekerja secara mandiri maupun dalam tim.
+    <br><br>
+    <strong>Hobby:</strong> Membaca komik, bermain game, mendengarkan musik.
   </div>
 </div>
 
 <!-- EDUCATION -->
 <div class="card">
-  <h2 class="clickable" onclick="toggleSection('edu')">
+  <h2 class="clickable" onclick="toggle('edu')">
     🎓 Education <span id="icon-edu">➕</span>
   </h2>
   <div id="edu" class="content hidden">
     <ul>
-      <li>SD — Lulus 2020</li>
-      <li>SMP — Lulus 2023</li>
-      <li>SMA — Lulus 2026</li>
+      <li>SDN Bantargedang Tasikmalaya — Lulus 2020</li>
+      <li>MTS As-Salam Baleendah — Lulus 2023</li>
+      <li>SMA KP Baleendah — Lulus 2026</li>
     </ul>
   </div>
 </div>
 
 <!-- SKILLS -->
 <div class="card">
-  <h2 class="clickable" onclick="toggleSection('skills')">
-    🛠 Skills <span id="icon-skills">➕</span>
+  <h2 class="clickable" onclick="toggle('skills')">
+    💡 Skills <span id="icon-skills">➕</span>
   </h2>
   <div id="skills" class="content hidden">
     <ul>
-      <li>Desain Canva</li>
-      <li>Presentasi PPT (WPS)</li>
-      <li>Edit foto & video dasar</li>
+      <li>Desain menggunakan Canva</li>
+      <li>Membuat presentasi PPT (WPS Office)</li>
+      <li>Dasar mengedit foto & video</li>
     </ul>
   </div>
 </div>
 
 <!-- ORGANIZATION -->
 <div class="card">
-  <h2 class="clickable" onclick="toggleSection('org')">
-    🏫 Organization <span id="icon-org">➕</span>
+  <h2 class="clickable" onclick="toggle('org')">
+    📚 Organizational Experience <span id="icon-org">➕</span>
   </h2>
   <div id="org" class="content hidden">
-    Eskul English Club
+    Ekstrakurikuler English Club
   </div>
 </div>
 
 <!-- LANGUAGE -->
 <div class="card">
-  <h2>🌍 Language</h2>
+  <h2>🗣 Languages</h2>
 
   <div class="lang-buttons">
     <button onclick="showLang('indo')">Indonesia</button>
     <button onclick="showLang('eng')">English</button>
-    <button onclick="showLang('jp')">Japan</button>
+    <button onclick="showLang('jp')">Japanese</button>
+    <button onclick="showLang('cn')">Chinese</button>
   </div>
 
   <div id="indo" class="language-box">
-    <div class="circle indonesia" data-target="100">0%</div>
+    <div class="lang">
+      <div class="circle indonesia" data-target="100">0%</div>
+      <p>🇮🇩 Bahasa Indonesia</p>
+    </div>
   </div>
 
   <div id="eng" class="language-box">
-    <div class="circle inggris" data-target="15">0%</div>
+    <div class="lang">
+      <div class="circle inggris" data-target="60">0%</div>
+      <p>🇬🇧 English</p>
+    </div>
   </div>
 
   <div id="jp" class="language-box">
-    <div class="circle jepang" data-target="10">0%</div>
+    <div class="lang">
+      <div class="circle jepang" data-target="30">0%</div>
+      <p>🇯🇵 日本語 (Japanese)</p>
+    </div>
+  </div>
+
+  <div id="cn" class="language-box">
+    <div class="lang">
+      <div class="circle china" data-target="10">0%</div>
+      <p>🇨🇳 中文 (Chinese)</p>
+    </div>
   </div>
 </div>
 
 </div>
 
 <script>
-function toggleSection(id){
+function toggle(id){
   const el=document.getElementById(id);
   const icon=document.getElementById('icon-'+id);
   el.classList.toggle('show');
@@ -252,9 +273,8 @@ function toggleSection(id){
   icon.textContent = el.classList.contains('show') ? '➖':'➕';
 }
 
-function animateCircle(circle,target){
+function animate(circle,target){
   let p=0;
-  circle.style.setProperty('--percent',0);
   const i=setInterval(()=>{
     p++;
     circle.style.setProperty('--percent',p);
@@ -267,12 +287,15 @@ function showLang(id){
   document.querySelectorAll('.language-box').forEach(b=>b.style.display='none');
   const box=document.getElementById(id);
   box.style.display='flex';
-  const circle=box.querySelector('.circle');
-  animateCircle(circle, parseInt(circle.dataset.target));
+  const c=box.querySelector('.circle');
+  const t=parseInt(c.dataset.target);
+  c.textContent='0%';
+  c.style.setProperty('--percent',0);
+  animate(c,t);
 }
 
 window.onload=()=>showLang('indo');
 </script>
 
 </body>
-  </html>
+</html>

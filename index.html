@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portfolio One Piece | Galang</title>
+<title>CV One Piece | Galang</title>
 <link href="https://fonts.googleapis.com/css2?family=Pirata+One&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -35,30 +35,34 @@ body::before{
 .info{font-size:14px;margin-top:10px;}
 .bounty-price{font-family:'Pirata One';font-size:28px;margin-top:10px;transition:.5s;}
 
-/* COLLAPSIBLE SECTION */
-section{padding:60px 20px;max-width:900px;margin:auto;opacity:0;transform:translateY(40px);}
-h2{font-family:'Pirata One';font-size:34px;margin-bottom:20px;color:#f4c430;text-align:center;cursor:pointer;}
-.collapsible-content{max-height:0;overflow:hidden;transition:0.6s;}
-.collapsible-content p, .collapsible-content ul{margin-top:10px;}
+/* CARD POIN */
+.card-section{max-width:900px;margin:60px auto;display:flex;flex-wrap:wrap;gap:20px;justify-content:center;}
+.card{background:rgba(255,255,255,0.1);border-radius:15px;padding:20px;width:280px;position:relative;cursor:pointer;overflow:hidden;transition:.3s;}
+.card:hover{transform:scale(1.05);box-shadow:0 0 25px #f4c430;}
+.card img{width:120px;float:right;border-radius:10px;margin-left:10px;}
+.card h3{font-family:'Pirata One';color:#f4c430;margin-bottom:10px;}
+.card p{display:none;margin-top:10px;color:#fff;font-size:14px;line-height:1.4;}
 
 /* SKILL CARDS */
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:20px;margin-top:20px;}
-.card{background:rgba(255,255,255,0.1);padding:20px;border-radius:15px;cursor:pointer;position:relative;overflow:hidden;text-align:center;transition:0.3s;}
-.card:hover{transform:scale(1.05) rotate(-1deg);box-shadow:0 0 25px #f4c430;}
-.card::before{content:'';position:absolute;width:100%;height:100%;top:-100%;left:0;background:linear-gradient(180deg,transparent,#f4c430);opacity:0.2;transition:0.4s;}
-.card:hover::before{top:0;}
+.card-skill{background:rgba(255,255,255,0.1);padding:20px;border-radius:15px;cursor:pointer;position:relative;overflow:hidden;text-align:center;transition:0.3s;}
+.card-skill:hover{transform:scale(1.05) rotate(-1deg);box-shadow:0 0 25px #f4c430;}
 .ripple{position:absolute;border-radius:50%;background:rgba(255,255,255,0.6);transform:scale(0);animation:ripple 0.6s linear;}
 @keyframes ripple{to{transform:scale(4);opacity:0;}}
 
 /* LANGUAGE BAR */
-.language-box{max-width:600px;margin:auto;}
+.language-box{max-width:600px;margin:auto;display:none;}
 .lang{margin-bottom:20px;display:flex;align-items:center;justify-content:flex-start;}
 .bar{background:rgba(255,255,255,.2);height:14px;border-radius:10px;overflow:hidden;margin-left:10px;flex:1;position:relative;}
 .progress{height:100%;width:0;border-radius:10px;position:relative;overflow:hidden;background:linear-gradient(to right,#00f5ff,#00ffd1);}
-.progress span{position:absolute;right:0;top:-20px;color:#fff;font-size:12px;font-weight:bold;}
+.progress span{position:absolute;right:0;top:-20px;color:#f4c430;font-size:12px;font-weight:bold;}
 
 /* FOOTER */
 footer{text-align:center;padding:20px;opacity:.7;}
+
+/* BUTTONS */
+.btn-show{background:#f4c430;color:#000;border:none;padding:8px 12px;margin-top:10px;border-radius:8px;cursor:pointer;transition:.3s;}
+.btn-show:hover{background:#ffd700;}
 </style>
 </head>
 <body>
@@ -80,74 +84,55 @@ footer{text-align:center;padding:20px;opacity:.7;}
   <small>(Klik poster untuk naik bounty)</small>
 </section>
 
-<!-- ABOUT -->
-<section>
-  <h2 class="collapsible-btn">Tentang Diri</h2>
-  <div class="collapsible-content">
+<!-- CARD POIN -->
+<div class="card-section">
+  <div class="card" data-character="luffy">
+    <h3>Tentang Diri</h3>
+    <button class="btn-show">Show Info</button>
     <p>Saya adalah seorang pelajar yang memiliki minat untuk belajar hal baru, bertanggung jawab, dan mampu bekerja secara mandiri maupun dalam tim.</p>
+    <img src="https://i.ibb.co/5nqfM39/luffy.png" alt="Luffy">
   </div>
-</section>
 
-<!-- HOBBY -->
-<section>
-  <h2 class="collapsible-btn">Hobby</h2>
-  <div class="collapsible-content">
-    <ul>
-      <li>🎮 Bermain game</li>
-      <li>📚 Membaca komik</li>
-      <li>🎧 Mendengarkan musik</li>
-    </ul>
+  <div class="card" data-character="zoro">
+    <h3>Hobby</h3>
+    <button class="btn-show">Show Info</button>
+    <p>🎮 Bermain game<br>📚 Membaca komik<br>🎧 Mendengarkan musik</p>
+    <img src="https://i.ibb.co/K2fYzXY/zoro.png" alt="Zoro">
   </div>
-</section>
 
-<!-- EDUCATION -->
-<section>
-  <h2 class="collapsible-btn">Riwayat Pendidikan</h2>
-  <div class="collapsible-content">
-    <ul>
-      <li>SDN Bantargedang Tasikmalaya – Lulus 2020</li>
-      <li>MTS AS-Baleendah – Lulus 2023</li>
-      <li>SMA KP Baleendah – Lulus 2026</li>
-    </ul>
+  <div class="card" data-character="robin">
+    <h3>Pendidikan</h3>
+    <button class="btn-show">Show Info</button>
+    <p>SDN Bantargedang Tasikmalaya – Lulus 2020<br>MTS AS-Baleendah – Lulus 2023<br>SMA KP Baleendah – Lulus 2026</p>
+    <img src="https://i.ibb.co/q5CqxXZ/robin.png" alt="Nico Robin">
   </div>
-</section>
 
-<!-- EXPERIENCE -->
-<section>
-  <h2 class="collapsible-btn">Pengalaman Organisasi</h2>
-  <div class="collapsible-content">
-    <ul>
-      <li>Eskul Bahasa Inggris SMA – 2024</li>
-    </ul>
+  <div class="card" data-character="brook">
+    <h3>Pengalaman</h3>
+    <button class="btn-show">Show Info</button>
+    <p>Eskul Bahasa Inggris SMA – 2024</p>
+    <img src="https://i.ibb.co/6w5Y5sX/brook.png" alt="Brook">
   </div>
-</section>
 
-<!-- CERTIFICATE -->
-<section>
-  <h2 class="collapsible-btn">Sertifikat</h2>
-  <div class="collapsible-content">
-    <ul>
-      <li>Belum memiliki sertifikat</li>
-    </ul>
+  <div class="card" data-character="sanji">
+    <h3>Skill</h3>
+    <button class="btn-show">Show Info</button>
+    <p>🎨 Desain Canva<br>📊 PPT (WPS)<br>🎬 Edit Foto/Video Dasar</p>
+    <img src="https://i.ibb.co/3B3Z0qF/sanji.png" alt="Sanji">
   </div>
-</section>
 
-<!-- SKILLS -->
-<section>
-  <h2 class="collapsible-btn">Keahlian / Skill</h2>
-  <div class="collapsible-content">
-    <div class="grid">
-      <div class="card">🎨 Desain Canva</div>
-      <div class="card">📊 PPT (WPS)</div>
-      <div class="card">🎬 Edit Foto/Video Dasar</div>
-    </div>
+  <div class="card" data-character="chopper">
+    <h3>Sertifikat</h3>
+    <button class="btn-show">Show Info</button>
+    <p>Belum memiliki sertifikat</p>
+    <img src="https://i.ibb.co/NyFptfD/chopper.png" alt="Chopper">
   </div>
-</section>
+</div>
 
 <!-- LANGUAGE -->
 <section>
-  <h2>Statistik Bahasa</h2>
-  <div class="language-box">
+  <button class="btn-show" id="toggleLang">Show Languages</button>
+  <div class="language-box" id="languageBox">
     <div class="lang">Indonesia
       <div class="bar"><div class="progress indo" data="100%"><span>0%</span></div></div>
     </div>
@@ -163,7 +148,7 @@ footer{text-align:center;padding:20px;opacity:.7;}
   </div>
 </section>
 
-<footer>🏴‍☠️ One Piece Portfolio • Galang © 2026</footer>
+<footer>🏴‍☠️ One Piece CV • Galang © 2026</footer>
 
 <!-- MUSIK -->
 <audio id="bgm" loop>
@@ -197,58 +182,39 @@ const obs=new IntersectionObserver(e=>{
     }
   });
 });
-document.querySelectorAll('section').forEach(s=>obs.observe(s));
+document.querySelectorAll('.card-section').forEach(s=>obs.observe(s));
 
-// Collapsible content with Haki/petir
-document.querySelectorAll('.collapsible-btn').forEach(btn=>{
-  btn.onclick=()=>{
-    const content=btn.nextElementSibling;
-    if(content.style.maxHeight){
-      content.style.maxHeight=null;
+// Card show/hide description + ripple
+document.querySelectorAll('.btn-show').forEach(btn=>{
+  btn.addEventListener('click', function(){
+    const p=this.parentElement.querySelector('p') || document.getElementById('languageBox');
+    if(p.style.display==='block'){
+      p.style.display='none';
     } else {
-      content.style.maxHeight=content.scrollHeight+"px";
-      const flash=document.createElement('div');
-      flash.style.position='absolute';
-      flash.style.width='100%';
-      flash.style.height='100%';
-      flash.style.top='0';
-      flash.style.left='0';
-      flash.style.background='radial-gradient(circle, rgba(255,255,255,0.3), transparent)';
-      flash.style.borderRadius='15px';
-      flash.style.pointerEvents='none';
-      btn.appendChild(flash);
-      setTimeout(()=>flash.remove(),500);
+      p.style.display='block';
+      // ripple effect
+      const ripple=document.createElement('span');
+      ripple.classList.add('ripple');
+      this.appendChild(ripple);
+      const rect=this.getBoundingClientRect();
+      ripple.style.left=event.clientX-rect.left+'px';
+      ripple.style.top=event.clientY-rect.top+'px';
+      setTimeout(()=>ripple.remove(),600);
     }
-  }
-});
-
-// Skill ripple
-document.querySelectorAll('.card').forEach(card=>{
-  card.addEventListener('click',function(e){
-    const ripple=document.createElement('span');
-    ripple.classList.add('ripple');
-    this.appendChild(ripple);
-    const rect=this.getBoundingClientRect();
-    ripple.style.left=e.clientX-rect.left+'px';
-    ripple.style.top=e.clientY-rect.top+'px';
-    setTimeout(()=>ripple.remove(),600);
   });
 });
 
-// Language bar with water/flow effect + percent
+// Language bar animation
 document.querySelectorAll('.progress').forEach(p=>{
   const target = parseInt(p.getAttribute('data'));
   const span = p.querySelector('span');
   let width=0;
   const interval = setInterval(()=>{
-    if(width>=target){
-      width=target;
-      clearInterval(interval);
-    }
+    if(width>=target){width=target;clearInterval(interval);}
     p.style.width = width+'%';
     span.innerText = width+'%';
     width++;
-  }, 20);
+  },20);
 });
 
 // Musik toggle
@@ -269,6 +235,13 @@ function createLightning(){
   setTimeout(()=>bolt.remove(),700);
 }
 setInterval(createLightning,500);
+
+// Toggle language box
+document.getElementById('toggleLang').onclick=()=>{
+  const langBox=document.getElementById('languageBox');
+  if(langBox.style.display==='block'){langBox.style.display='none';}
+  else langBox.style.display='block';
+}
 </script>
 </body>
 </html>

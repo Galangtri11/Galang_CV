@@ -14,7 +14,7 @@ body::before{
   content:'';
   position:fixed;top:0;left:0;width:200%;height:100%;
   background:url('https://i.ibb.co/FmH1RjZ/wave.png') repeat-x;
-  opacity:0.12;
+  opacity:0.15;
   animation:wave 40s linear infinite;
   z-index:-1;
 }
@@ -35,9 +35,11 @@ body::before{
 .info{font-size:14px;margin-top:10px;}
 .bounty-price{font-family:'Pirata One';font-size:28px;margin-top:10px;transition:.5s;}
 
-/* SECTION */
+/* COLLAPSIBLE SECTION */
 section{padding:60px 20px;max-width:900px;margin:auto;opacity:0;transform:translateY(40px);}
-h2{font-family:'Pirata One';font-size:34px;margin-bottom:20px;color:#f4c430;text-align:center;}
+h2{font-family:'Pirata One';font-size:34px;margin-bottom:20px;color:#f4c430;text-align:center;cursor:pointer;}
+.collapsible-content{max-height:0;overflow:hidden;transition:0.6s;}
+.collapsible-content p, .collapsible-content ul{margin-top:10px;}
 
 /* SKILL CARDS */
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:20px;margin-top:20px;}
@@ -50,20 +52,16 @@ h2{font-family:'Pirata One';font-size:34px;margin-bottom:20px;color:#f4c430;text
 
 /* LANGUAGE BAR */
 .language-box{max-width:600px;margin:auto;}
-.lang{margin-bottom:20px;display:flex;align-items:center;justify-content:space-between;}
-.bar{background:rgba(255,255,255,.2);height:14px;border-radius:10px;overflow:hidden;margin-left:10px;flex:1;}
-.progress{height:100%;width:0;border-radius:10px;animation:loadBar 2s ease forwards;}
-.indo{background:#4caf50;}
-.sunda{background:#ff9800;}
-.inggris{background:#2196f3;}
-.china{background:#f44336;}
+.lang{margin-bottom:20px;display:flex;align-items:center;justify-content:flex-start;}
+.bar{background:rgba(255,255,255,.2);height:14px;border-radius:10px;overflow:hidden;margin-left:10px;flex:1;position:relative;}
+.progress{height:100%;width:0;border-radius:10px;position:relative;animation:loadBar 2s ease forwards;overflow:hidden;background:linear-gradient(to right,#00f5ff,#00ffd1);}
+.progress::after{content:attr(data);position:absolute;right:5px;top:0;color:#fff;font-size:12px;line-height:14px;}
 @keyframes loadBar{to{width:var(--target);}}
 
 /* FOOTER */
 footer{text-align:center;padding:20px;opacity:.7;}
 </style>
 </head>
-
 <body>
 
 <!-- PETIR -->
@@ -85,53 +83,65 @@ footer{text-align:center;padding:20px;opacity:.7;}
 
 <!-- ABOUT -->
 <section>
-  <h2>Tentang Diri</h2>
-  <p>Saya adalah seorang pelajar yang memiliki minat untuk belajar hal baru, bertanggung jawab, dan mampu bekerja secara mandiri maupun dalam tim.</p>
+  <h2 class="collapsible-btn">Tentang Diri</h2>
+  <div class="collapsible-content">
+    <p>Saya adalah seorang pelajar yang memiliki minat untuk belajar hal baru, bertanggung jawab, dan mampu bekerja secara mandiri maupun dalam tim.</p>
+  </div>
 </section>
 
 <!-- HOBBY -->
 <section>
-  <h2>Hobby</h2>
-  <ul>
-    <li>🎮 Bermain game</li>
-    <li>📚 Membaca komik</li>
-    <li>🎧 Mendengarkan musik</li>
-  </ul>
+  <h2 class="collapsible-btn">Hobby</h2>
+  <div class="collapsible-content">
+    <ul>
+      <li>🎮 Bermain game</li>
+      <li>📚 Membaca komik</li>
+      <li>🎧 Mendengarkan musik</li>
+    </ul>
+  </div>
 </section>
 
 <!-- EDUCATION -->
 <section>
-  <h2>Riwayat Pendidikan</h2>
-  <ul>
-    <li>SDN Bantargedang Tasikmalaya – Lulus 2020</li>
-    <li>MTS AS-Baleendah – Lulus 2023</li>
-    <li>SMA KP Baleendah – Lulus 2026</li>
-  </ul>
+  <h2 class="collapsible-btn">Riwayat Pendidikan</h2>
+  <div class="collapsible-content">
+    <ul>
+      <li>SDN Bantargedang Tasikmalaya – Lulus 2020</li>
+      <li>MTS AS-Baleendah – Lulus 2023</li>
+      <li>SMA KP Baleendah – Lulus 2026</li>
+    </ul>
+  </div>
 </section>
 
 <!-- EXPERIENCE -->
 <section>
-  <h2>Pengalaman Organisasi</h2>
-  <ul>
-    <li>Eskul Bahasa Inggris SMA – 2024</li>
-  </ul>
+  <h2 class="collapsible-btn">Pengalaman Organisasi</h2>
+  <div class="collapsible-content">
+    <ul>
+      <li>Eskul Bahasa Inggris SMA – 2024</li>
+    </ul>
+  </div>
 </section>
 
 <!-- CERTIFICATE -->
 <section>
-  <h2>Sertifikat</h2>
-  <ul>
-    <li>Belum memiliki sertifikat</li>
-  </ul>
+  <h2 class="collapsible-btn">Sertifikat</h2>
+  <div class="collapsible-content">
+    <ul>
+      <li>Belum memiliki sertifikat</li>
+    </ul>
+  </div>
 </section>
 
 <!-- SKILLS -->
 <section>
-  <h2>Keahlian / Skill</h2>
-  <div class="grid">
-    <div class="card">🎨 Desain Canva</div>
-    <div class="card">📊 PPT (WPS)</div>
-    <div class="card">🎬 Edit Foto/Video Dasar</div>
+  <h2 class="collapsible-btn">Keahlian / Skill</h2>
+  <div class="collapsible-content">
+    <div class="grid">
+      <div class="card">🎨 Desain Canva</div>
+      <div class="card">📊 PPT (WPS)</div>
+      <div class="card">🎬 Edit Foto/Video Dasar</div>
+    </div>
   </div>
 </section>
 
@@ -139,39 +149,43 @@ footer{text-align:center;padding:20px;opacity:.7;}
 <section>
   <h2>Statistik Bahasa</h2>
   <div class="language-box">
-    <div class="lang">Indonesia <span>100%</span>
+    <div class="lang">Indonesia
       <div class="bar"><div class="progress indo" data="100%"></div></div>
     </div>
-    <div class="lang">Sunda <span>100%</span>
+    <div class="lang">Sunda
       <div class="bar"><div class="progress sunda" data="100%"></div></div>
     </div>
-    <div class="lang">Inggris <span>15%</span>
+    <div class="lang">Inggris
       <div class="bar"><div class="progress inggris" data="15%"></div></div>
     </div>
-    <div class="lang">Chinese <span>5%</span>
+    <div class="lang">Chinese
       <div class="bar"><div class="progress china" data="5%"></div></div>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>🏴‍☠️ One Piece Portfolio • Galang © 2026</footer>
 
 <!-- MUSIK -->
 <audio id="bgm" loop>
-  <source src="one_piece_we_are.mp3" type="audio/mpeg">
+  <source src="suuwud7eudj" type="audio/mpeg">
 </audio>
 <button id="musicBtn" style="position:fixed;bottom:20px;right:20px;padding:12px;border:none;border-radius:50%;background:#f4c430;font-size:20px;cursor:pointer;z-index:999;">🎵</button>
 
 <script>
-// Bounty click
+// Bounty click + Haki glow
 let bounty=150;
 const bountyText=document.getElementById('bounty');
-document.getElementById('bountyBox').onclick=()=>{
+const bountyBox=document.getElementById('bountyBox');
+bountyBox.onclick=()=>{
   bounty+=50;
   bountyText.innerText=`B$ ${bounty}.000.000`;
-  document.getElementById('bountyBox').style.transform='scale(1.1)';
-  setTimeout(()=>document.getElementById('bountyBox').style.transform='scale(1)',300);
+  bountyBox.style.transform='scale(1.1)';
+  bountyBox.style.boxShadow='0 0 80px #fffc00,0 0 150px #fffc00';
+  setTimeout(()=>{
+    bountyBox.style.transform='scale(1)';
+    bountyBox.style.boxShadow='0 0 30px rgba(0,0,0,.7)';
+  },300);
 };
 
 // Scroll animation
@@ -186,6 +200,30 @@ const obs=new IntersectionObserver(e=>{
 });
 document.querySelectorAll('section').forEach(s=>obs.observe(s));
 
+// Collapsible content with Haki/petir
+document.querySelectorAll('.collapsible-btn').forEach(btn=>{
+  btn.onclick=()=>{
+    const content=btn.nextElementSibling;
+    if(content.style.maxHeight){
+      content.style.maxHeight=null;
+    } else {
+      content.style.maxHeight=content.scrollHeight+"px";
+      // Haki animation flash
+      const flash=document.createElement('div');
+      flash.style.position='absolute';
+      flash.style.width='100%';
+      flash.style.height='100%';
+      flash.style.top='0';
+      flash.style.left='0';
+      flash.style.background='radial-gradient(circle, rgba(255,255,255,0.3), transparent)';
+      flash.style.borderRadius='15px';
+      flash.style.pointerEvents='none';
+      btn.appendChild(flash);
+      setTimeout(()=>flash.remove(),500);
+    }
+  }
+});
+
 // Skill ripple
 document.querySelectorAll('.card').forEach(card=>{
   card.addEventListener('click',function(e){
@@ -199,13 +237,15 @@ document.querySelectorAll('.card').forEach(card=>{
   });
 });
 
-// Language bar
-document.querySelectorAll('.progress').forEach(p=>{p.style.setProperty('--target',p.getAttribute('data'));});
+// Language bar with water/flow effect
+document.querySelectorAll('.progress').forEach(p=>{
+  p.style.setProperty('--target',p.getAttribute('data'));
+});
 
 // Musik toggle
 const music=document.getElementById('bgm');
-const btn=document.getElementById('musicBtn');
-btn.onclick=()=>{if(music.paused){music.play();btn.innerHTML='🔊';}else{music.pause();btn.innerHTML='🎵';}}
+const btnMusic=document.getElementById('musicBtn');
+btnMusic.onclick=()=>{if(music.paused){music.play();btnMusic.innerHTML='🔊';}else{music.pause();btnMusic.innerHTML='🎵';}}
 
 // Petir generator
 const container=document.getElementById('petirContainer');
@@ -222,4 +262,4 @@ function createLightning(){
 setInterval(createLightning,500);
 </script>
 </body>
-  </html>
+</html>

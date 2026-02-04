@@ -28,11 +28,11 @@ header{
 }
 
 header img{
-  width:175px;
-  height:180px;
+  width:160px;
+  height:160px;
   object-fit:cover;
   object-position:center;
-  border-radius:40%;
+  border-radius:50%;
   border:4px solid #6366f1;
   box-shadow:0 10px 25px rgba(0,0,0,.35);
   margin-bottom:15px;
@@ -123,6 +123,8 @@ li{
 }
 
 .circle{
+  --percent:0;
+  --color:#ef4444;
   width:140px;
   height:140px;
   border-radius:50%;
@@ -132,29 +134,18 @@ li{
   font-weight:700;
   font-size:24px;
   color:#000;
-  background:#fff;
+  background:conic-gradient(
+    var(--color) calc(var(--percent) * 1%),
+    #e5e7eb 0
+  );
 }
 
-/* ===== FLAG SHAPES ===== */
-.indonesia{
-  background:linear-gradient(to bottom,#ef4444 0% 50%,#ffffff 50% 100%);
-}
-
-.sunda{
-  background:linear-gradient(to bottom,#22c55e 0% 50%,#ffffff 50% 100%);
-}
-
-.jepang{
-  background:radial-gradient(circle at center,#dc2626 0% 35%,#ffffff 36% 100%);
-}
-
-.inggris{
-  background:linear-gradient(135deg,#1e3a8a 0% 60%,#dc2626 60% 100%);
-}
-
-.china{
-  background:radial-gradient(circle at 30% 30%,#facc15 0% 18%,#b91c1c 20% 100%);
-}
+/* Flag colors */
+.indonesia{ --color:#ef4444; }
+.sunda{ --color:#22c55e; }
+.inggris{ --color:#1e3a8a; }
+.jepang{ --color:#dc2626; }
+.china{ --color:#b91c1c; }
 
 .lang p{
   margin-top:10px;
@@ -171,11 +162,28 @@ footer{
 </style>
 
 <script>
+function animateCircle(circle, target){
+  let value = 0;
+  const interval = setInterval(()=>{
+    value++;
+    circle.style.setProperty('--percent', value);
+    circle.textContent = value + '%';
+    if(value >= target) clearInterval(interval);
+  }, 15);
+}
+
 function showLang(id){
   document.querySelectorAll('.language-box').forEach(b=>b.style.display='none');
-  document.getElementById(id).style.display='flex';
+  const box = document.getElementById(id);
+  box.style.display='flex';
+
+  const circle = box.querySelector('.circle');
+  const target = parseInt(circle.dataset.percent);
+  circle.textContent = '0%';
+  animateCircle(circle, target);
 }
-window.onload=()=>showLang('indo');
+
+window.onload = ()=>showLang('indo');
 </script>
 </head>
 
@@ -196,7 +204,7 @@ window.onload=()=>showLang('indo');
 
 <div class="card">
   <h2>📝 About Me</h2>
-  <p>Saya adalah pelajar yang bertanggung jawab, mampu bekerja dalam tim maupun mandiri, serta mudah beradaptasi.</p>
+  <p>Saya adalah pelajar yang bertanggung jawab, mudah beradaptasi, serta mampu bekerja secara mandiri maupun dalam tim.</p>
 </div>
 
 <div class="card">
@@ -217,23 +225,16 @@ window.onload=()=>showLang('indo');
 <div class="card">
   <h2>💡 Skills</h2>
   <ul>
-    <li>Desain Canva</li>
-    <li>Membuat PPT di Wpps</li>
-    <li>Dasar Mengedit Foto/Video</li>
+    <li>Desain menggunakan Canva</li>
+    <li>Membuat presentasi PPT (WPS Office)</li>
+    <li>Dasar mengedit foto dan video</li>
   </ul>
 </div>
 
 <div class="card">
   <h2>📚 Organizational Experience</h2>
   <ul>
-    <li>Eskul English (SMA)</li>
-  </ul>
-</div>
-
-<div class="card">
-  <h2>📜 Certificate</h2>
-  <ul>
-    <li>Belum ada</li>
+    <li>Ekstrakurikuler English Club</li>
   </ul>
 </div>
 
@@ -250,35 +251,35 @@ window.onload=()=>showLang('indo');
 
   <div class="language-box" id="indo">
     <div class="lang">
-      <div class="circle indonesia">100%</div>
+      <div class="circle indonesia" data-percent="100">0%</div>
       <p>Bahasa Indonesia</p>
     </div>
   </div>
 
   <div class="language-box" id="sun">
     <div class="lang">
-      <div class="circle sunda">100%</div>
+      <div class="circle sunda" data-percent="100">0%</div>
       <p>Bahasa Sunda</p>
     </div>
   </div>
 
   <div class="language-box" id="eng">
     <div class="lang">
-      <div class="circle inggris">15%</div>
+      <div class="circle inggris" data-percent="15">0%</div>
       <p>Bahasa Inggris</p>
     </div>
   </div>
 
   <div class="language-box" id="jp">
     <div class="lang">
-      <div class="circle jepang">10%</div>
+      <div class="circle jepang" data-percent="10">0%</div>
       <p>Bahasa Jepang</p>
     </div>
   </div>
 
   <div class="language-box" id="cn">
     <div class="lang">
-      <div class="circle china">5%</div>
+      <div class="circle china" data-percent="5">0%</div>
       <p>Bahasa Mandarin</p>
     </div>
   </div>

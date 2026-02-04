@@ -3,307 +3,215 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portofolio Galang | One Piece Bounty</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+<title>Portofolio One Piece | Galang</title>
 
 <style>
-:root{
-  --primary:#f4c430;
-  --accent:#ff3d00;
-}
+@import url('https://fonts.googleapis.com/css2?family=Pirata+One&family=Poppins:wght@300;400;600&display=swap');
 
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
-
+*{margin:0;padding:0;box-sizing:border-box;}
 body{
   font-family:'Poppins',sans-serif;
-  background:linear-gradient(180deg,#021024,#04395e);
-  color:white;
-}
-
-/* ===== NAV ===== */
-nav{
-  position:fixed;
-  top:0;
-  width:100%;
-  background:rgba(0,0,0,0.6);
-  backdrop-filter:blur(8px);
-  display:flex;
-  justify-content:center;
-  gap:20px;
-  padding:15px;
-  z-index:999;
-}
-
-nav a{
-  color:white;
-  text-decoration:none;
-  font-weight:600;
-}
-
-nav a:hover{
-  color:var(--primary);
-}
-
-/* ===== SECTION ===== */
-section{
-  min-height:100vh;
-  padding:120px 10%;
-  animation:fadeUp 1s ease;
-}
-
-@keyframes fadeUp{
-  from{opacity:0;transform:translateY(40px);}
-  to{opacity:1;transform:translateY(0);}
-}
-
-/* ===== HERO ===== */
-.hero{
-  display:flex;
-  flex-direction:column;
-}
-
-/* ===== BOUNTY POSTER ===== */
-.bounty{
-  width:260px;
-  background:#e8d8b0;
-  color:#3b2a1a;
-  padding:15px;
-  border:6px solid #5a3d28;
-  box-shadow:0 0 40px rgba(0,0,0,0.6);
-  text-align:center;
-  font-family:'Times New Roman',serif;
-  margin-bottom:25px;
-  animation:bountyIn 1.4s ease;
-}
-
-.bounty-title{
-  font-size:32px;
-  letter-spacing:4px;
-  font-weight:bold;
-}
-
-.bounty img{
-  width:100%;
-  height:260px;
-  object-fit:cover;
-  border:4px solid #5a3d28;
-  margin:10px 0;
-  filter:sepia(25%) contrast(1.05);
-}
-
-.bounty-name{
-  font-size:18px;
-  font-weight:bold;
-  letter-spacing:2px;
-}
-
-.bounty-price{
-  font-size:22px;
-  font-weight:bold;
-  margin:8px 0;
-}
-
-.bounty-footer{
-  font-size:14px;
-  letter-spacing:2px;
-}
-
-@keyframes bountyIn{
-  from{opacity:0;transform:scale(0.7) rotate(-4deg);}
-  to{opacity:1;transform:scale(1) rotate(0);}
-}
-
-.hero h1{
-  font-size:3rem;
-  color:var(--primary);
-}
-
-.hero span{
-  color:var(--accent);
-}
-
-.info{
-  margin-top:10px;
-  line-height:1.6;
-  font-size:14px;
-  color:#ddd;
-}
-
-.info a{
-  color:var(--primary);
-  text-decoration:none;
-  font-weight:600;
-}
-
-.tagline{
-  margin-top:15px;
-  max-width:600px;
-  line-height:1.7;
-}
-
-/* ===== GRID ===== */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-  gap:25px;
-  margin-top:30px;
-}
-
-.card{
-  background:rgba(255,255,255,0.1);
-  padding:25px;
-  border-radius:15px;
-  cursor:pointer;
+  background:#0b1c2d;
+  color:#fff;
+  overflow-x:hidden;
   position:relative;
-  overflow:hidden;
-  transition:0.3s;
 }
 
-.card:hover{
-  transform:scale(1.05) rotate(-1deg);
-}
-
-.card::before{
+/* WAVES */
+body::before{
   content:'';
-  position:absolute;
-  width:100%;
-  height:100%;
-  top:-100%;
-  left:0;
-  background:linear-gradient(180deg,transparent,var(--primary));
-  opacity:0.3;
-  transition:0.4s;
+  position:fixed; top:0; left:0;
+  width:200%; height:100%;
+  background:url('https://i.ibb.co/FmH1RjZ/wave.png') repeat-x;
+  opacity:0.12;
+  animation:wave 40s linear infinite;
+  z-index:-1;
+}
+@keyframes wave{from{background-position:0 0;} to{background-position:-2000px 0;}}
+
+/* PETIR ⚡ */
+.petir{
+  position:fixed;top:0;left:0;width:100%;height:100%;
+  pointer-events:none; z-index:998;
+}
+.lightning{
+  position:absolute; width:4px; height:120px;
+  background:linear-gradient(to bottom, #fff, #00f5ff);
+  opacity:0;
+  animation:flash 2s infinite;
+}
+@keyframes flash{
+  0%, 20%, 100%{opacity:0;}
+  10%, 15%{opacity:1;}
 }
 
-.card:hover::before{
-  top:0;
+/* SECTION */
+section{
+  padding:60px 20px; max-width:900px; margin:auto;
+  opacity:0; transform:translateY(40px);
 }
+h2{font-family:'Pirata One';font-size:34px;margin-bottom:20px;color:#f4c430;text-align:center;}
 
-/* ===== CLICK EFFECT ===== */
-.ripple{
-  position:absolute;
-  border-radius:50%;
-  background:rgba(255,255,255,0.6);
-  transform:scale(0);
-  animation:ripple 0.6s linear;
+/* BOUNTY POSTER + HAKI */
+.bounty{
+  background:#fdf3d7;color:#000;border:8px solid #3a2a18;
+  border-radius:14px;padding:25px;text-align:center;
+  box-shadow:0 0 30px rgba(0,0,0,.7);
+  cursor:pointer; transition:.3s;
+  position:relative;
 }
+.bounty:hover{box-shadow:0 0 60px #fffc00,0 0 120px #fffc00;}
+.bounty::after{
+  content:'';position:absolute;top:-20px;left:-20px;width:calc(100% + 40px);height:calc(100% + 40px);
+  border:2px solid #fffc00; border-radius:16px;
+  opacity:0; transition:.4s;
+}
+.bounty:hover::after{opacity:0.7;}
 
-@keyframes ripple{
-  to{transform:scale(4);opacity:0;}
-}
+.bounty img{width:200px;border:6px solid #3a2a18;border-radius:10px;margin-bottom:15px;}
+.bounty h1{font-family:'Pirata One';font-size:36px;}
+.info{font-size:14px;margin-top:10px;}
+.bounty-price{font-family:'Pirata One';font-size:28px;margin-top:10px;}
 
-/* ===== FOOTER ===== */
-footer{
-  background:black;
-  text-align:center;
-  padding:30px;
-  color:#aaa;
-}
+/* LANGUAGE */
+.language-box{max-width:600px;margin:auto;}
+.lang{margin-bottom:20px;}
+.bar{background:rgba(255,255,255,.2);height:14px;border-radius:10px;overflow:hidden;}
+.progress{height:100%;width:0;border-radius:10px;animation:loadBar 2s ease forwards;}
+.indo{background:#4caf50;}
+.sunda{background:#ff9800;}
+.inggris{background:#2196f3;}
+.china{background:#f44336;}
+@keyframes loadBar{to{width:var(--target);}}
 
-@media(max-width:768px){
-  .hero h1{font-size:2.2rem;}
-}
+/* FOOTER */
+footer{text-align:center;padding:20px;opacity:.7;}
 </style>
 </head>
 
 <body>
 
-<nav>
-  <a href="#home">Home</a>
-  <a href="#about">Hobby</a>
-  <a href="#education">Pendidikan</a>
-  <a href="#skills">Keahlian</a>
-  <a href="#contact">Kontak</a>
-</nav>
+<!-- PETIR ELEMENT -->
+<div class="petir" id="petirContainer"></div>
 
-<section id="home" class="hero">
-
-  <div class="bounty">
-    <div class="bounty-title">WANTED</div>
-    <img src="1770018338130.png" alt="Galang Bounty">
-    <div class="bounty-name">GALANG<br>TRI ALI ALAMSAH</div>
-    <div class="bounty-price">B$ 150.000.000</div>
-    <div class="bounty-footer">DEAD OR ALIVE</div>
-  </div>
-
-  <h1>🏴‍☠️ Galang <span>Tri Ali Alamsah</span></h1>
-
+<!-- BOUNTY / HERO -->
+<section class="bounty" id="bountyBox">
+  <img src="1770018338130.png" alt="Foto Galang">
+  <h1>GALANG TRI ALI ALAMSAH</h1>
   <div class="info">
-    📱 0851-7997-2033<br>
-    📍 Kp. Kawungsari, Baleendah, Kab. Bandung<br>
-    📷 Instagram:
-    <a href="https://instagram.com/tri891" target="_blank">@tri891</a>
+    📍 Kp. Kawungsari, Wargamekar, Baleendah, Bandung<br>
+    📞 085179972033<br>
+    📸 Instagram: @tri891
   </div>
-
-  <p class="tagline">
-    Saya adalah seorang pelajar yang memiliki minat untuk belajar hal baru,
-    bertanggung jawab, dan mampu bekerja secara mandiri maupun dalam tim.
-  </p>
-
+  <div class="bounty-price" id="bounty">B$ 150.000.000</div>
+  <small>(Klik poster untuk naik bounty)</small>
 </section>
 
-<section id="about">
-  <h2>⚓ Hobby</h2>
-  <div class="grid">
-    <div class="card">🎮 Bermain Game</div>
-    <div class="card">📚 Membaca Komik</div>
-    <div class="card">🎧 Mendengarkan Musik</div>
+<!-- ABOUT -->
+<section>
+  <h2>Tentang Diri</h2>
+  <p>Saya adalah seorang pelajar yang memiliki minat untuk belajar hal baru,
+  bertanggung jawab, dan mampu bekerja secara mandiri maupun dalam tim.</p>
+</section>
+
+<!-- HOBBY -->
+<section>
+  <h2>Hobby</h2>
+  <ul>
+    <li>🎮 Bermain game</li>
+    <li>📚 Membaca komik</li>
+    <li>🎧 Mendengarkan musik</li>
+  </ul>
+</section>
+
+<!-- SKILL -->
+<section>
+  <h2>Keahlian</h2>
+  <ul>
+    <li>🎨 Desain Canva</li>
+    <li>📊 Membuat PPT (WPS)</li>
+    <li>🎬 Dasar edit foto & video</li>
+  </ul>
+</section>
+
+<!-- LANGUAGE -->
+<section>
+  <h2>Statistik Bahasa</h2>
+  <div class="language-box">
+    <div class="lang">Indonesia
+      <div class="bar"><div class="progress indo" data="100%"></div></div>
+    </div>
+    <div class="lang">Sunda
+      <div class="bar"><div class="progress sunda" data="100%"></div></div>
+    </div>
+    <div class="lang">Inggris
+      <div class="bar"><div class="progress inggris" data="15%"></div></div>
+    </div>
+    <div class="lang">Chinese
+      <div class="bar"><div class="progress china" data="5%"></div></div>
+    </div>
   </div>
 </section>
 
-<section id="education">
-  <h2>🏴 Pendidikan</h2>
-  <div class="grid">
-    <div class="card">SDN Bantargedang Tasikmalaya<br>Lulus 2020</div>
-    <div class="card">MTS As-Baleendah<br>Lulus 2023</div>
-    <div class="card">SMA KP Baleendah<br>Lulus 2026</div>
-  </div>
-</section>
+<!-- FOOTER -->
+<footer>🏴‍☠️ One Piece Portfolio • Galang © 2026</footer>
 
-<section id="skills">
-  <h2>🗡️ Keahlian & Bahasa</h2>
-  <div class="grid">
-    <div class="card">🎨 Desain Canva</div>
-    <div class="card">📊 PPT (WPS)</div>
-    <div class="card">🎬 Edit Foto/Video Dasar</div>
-    <div class="card">🇮🇩 Indonesia 100%</div>
-    <div class="card">🇬🇧 Inggris 15%</div>
-    <div class="card">🇮🇩 Sunda 100%</div>
-    <div class="card">🇨🇳 Chinese 5%</div>
-  </div>
-</section>
-
-<section id="contact">
-  <h2>📞 Kontak</h2>
-  <div class="grid">
-    <div class="card">📱 0851-7997-2033</div>
-    <div class="card">📍 Baleendah, Bandung</div>
-    <div class="card">📷 @tri891</div>
-  </div>
-</section>
-
-<footer>
-  © 2026 Pirate Portfolio — Galang Tri Ali Alamsah
-</footer>
+<!-- MUSIK ONE PIECE -->
+<audio id="bgm" loop>
+  <source src="onepiece.mp3" type="audio/mpeg">
+</audio>
+<button id="musicBtn"
+style="position:fixed;bottom:20px;right:20px;padding:12px;border:none;border-radius:50%;background:#f4c430;font-size:20px;cursor:pointer;z-index:999;">🎵</button>
 
 <script>
-document.querySelectorAll('.card').forEach(card=>{
-  card.addEventListener('click',function(e){
-    const ripple=document.createElement('span');
-    ripple.classList.add('ripple');
-    this.appendChild(ripple);
-    const rect=this.getBoundingClientRect();
-    ripple.style.left=e.clientX-rect.left+'px';
-    ripple.style.top=e.clientY-rect.top+'px';
-    setTimeout(()=>ripple.remove(),600);
+// Bounty klik
+let bounty = 150;
+const bountyText = document.getElementById('bounty');
+document.getElementById('bountyBox').onclick=()=>{
+  bounty+=50;
+  bountyText.innerText=`B$ ${bounty}.000.000`;
+  document.getElementById('bountyBox').style.transform='scale(1.1)';
+  setTimeout(()=>document.getElementById('bountyBox').style.transform='scale(1)',300);
+};
+
+// Scroll animation
+const obs = new IntersectionObserver(e=>{
+  e.forEach(x=>{
+    if(x.isIntersecting){
+      x.target.style.opacity=1;
+      x.target.style.transform='translateY(0)';
+      x.target.style.transition='1s';
+    }
   });
 });
+document.querySelectorAll('section').forEach(s=>obs.observe(s));
+
+// Language bar animation
+document.querySelectorAll('.progress').forEach(p=>{
+  p.style.setProperty('--target',p.getAttribute('data'));
+});
+
+// Musik toggle
+const music = document.getElementById('bgm');
+const btn = document.getElementById('musicBtn');
+btn.onclick=()=>{
+  if(music.paused){music.play(); btn.innerHTML='🔊';}else{music.pause(); btn.innerHTML='🎵';}
+};
+
+// Petir generator
+const container = document.getElementById('petirContainer');
+function createLightning(){
+  const bolt = document.createElement('div');
+  bolt.classList.add('lightning');
+  bolt.style.left=Math.random()*window.innerWidth+'px';
+  bolt.style.top=Math.random()*window.innerHeight+'px';
+  bolt.style.height=(80+Math.random()*120)+'px';
+  bolt.style.animationDuration=(0.5+Math.random()*0.5)+'s';
+  container.appendChild(bolt);
+  setTimeout(()=>bolt.remove(),700);
+}
+setInterval(createLightning,500);
 </script>
 
 </body>
-</html>
+  </html>

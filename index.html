@@ -4,25 +4,28 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Portfolio One Piece | Galang</title>
+<link href="https://fonts.googleapis.com/css2?family=Pirata+One&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Pirata+One&family=Poppins:wght@300;400;600&display=swap');
 *{margin:0;padding:0;box-sizing:border-box;}
 body{font-family:'Poppins',sans-serif;background:#0b1c2d;color:#fff;overflow-x:hidden;position:relative;}
 
-/* WAVES & KAPAL */
-body::before{content:'';position:fixed;top:0;left:0;width:200%;height:100%;background:url('https://i.ibb.co/FmH1RjZ/wave.png') repeat-x;opacity:0.12;animation:wave 40s linear infinite;z-index:-1;}
+/* LAUT & KAPAL */
+body::before{
+  content:'';
+  position:fixed;top:0;left:0;width:200%;height:100%;
+  background:url('https://i.ibb.co/FmH1RjZ/wave.png') repeat-x;
+  opacity:0.12;
+  animation:wave 40s linear infinite;
+  z-index:-1;
+}
 @keyframes wave{from{background-position:0 0;} to{background-position:-2000px 0;}}
 
-/* PETIR ⚡ */
+/* PETIR */
 .petir{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:998;}
 .lightning{position:absolute;width:4px;height:120px;background:linear-gradient(to bottom,#fff,#00f5ff);opacity:0;animation:flash 2s infinite;}
 @keyframes flash{0%,20%,100%{opacity:0;}10%,15%{opacity:1;}}
 
-/* SECTION */
-section{padding:60px 20px;max-width:900px;margin:auto;opacity:0;transform:translateY(40px);}
-h2{font-family:'Pirata One';font-size:34px;margin-bottom:20px;color:#f4c430;text-align:center;}
-
-/* HERO BOUNTY + HAKI */
+/* HERO BOUNTY */
 .bounty{background:#fdf3d7;color:#000;border:8px solid #3a2a18;border-radius:14px;padding:25px;text-align:center;box-shadow:0 0 30px rgba(0,0,0,.7);cursor:pointer;transition:.3s;position:relative;}
 .bounty:hover{box-shadow:0 0 60px #fffc00,0 0 120px #fffc00;}
 .bounty::after{content:'';position:absolute;top:-20px;left:-20px;width:calc(100%+40px);height:calc(100%+40px);border:2px solid #fffc00;border-radius:16px;opacity:0;transition:.4s;}
@@ -32,7 +35,11 @@ h2{font-family:'Pirata One';font-size:34px;margin-bottom:20px;color:#f4c430;text
 .info{font-size:14px;margin-top:10px;}
 .bounty-price{font-family:'Pirata One';font-size:28px;margin-top:10px;transition:.5s;}
 
-/* GRID SKILL */
+/* SECTION */
+section{padding:60px 20px;max-width:900px;margin:auto;opacity:0;transform:translateY(40px);}
+h2{font-family:'Pirata One';font-size:34px;margin-bottom:20px;color:#f4c430;text-align:center;}
+
+/* SKILL CARDS */
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:20px;margin-top:20px;}
 .card{background:rgba(255,255,255,0.1);padding:20px;border-radius:15px;cursor:pointer;position:relative;overflow:hidden;text-align:center;transition:0.3s;}
 .card:hover{transform:scale(1.05) rotate(-1deg);box-shadow:0 0 25px #f4c430;}
@@ -56,6 +63,7 @@ h2{font-family:'Pirata One';font-size:34px;margin-bottom:20px;color:#f4c430;text
 footer{text-align:center;padding:20px;opacity:.7;}
 </style>
 </head>
+
 <body>
 
 <!-- PETIR -->
@@ -151,7 +159,7 @@ footer{text-align:center;padding:20px;opacity:.7;}
 
 <!-- MUSIK -->
 <audio id="bgm" loop>
-  <source src="onepiece.mp3" type="audio/mpeg">
+  <source src="one_piece_we_are.mp3" type="audio/mpeg">
 </audio>
 <button id="musicBtn" style="position:fixed;bottom:20px;right:20px;padding:12px;border:none;border-radius:50%;background:#f4c430;font-size:20px;cursor:pointer;z-index:999;">🎵</button>
 

@@ -54,9 +54,8 @@ h2{font-family:'Pirata One';font-size:34px;margin-bottom:20px;color:#f4c430;text
 .language-box{max-width:600px;margin:auto;}
 .lang{margin-bottom:20px;display:flex;align-items:center;justify-content:flex-start;}
 .bar{background:rgba(255,255,255,.2);height:14px;border-radius:10px;overflow:hidden;margin-left:10px;flex:1;position:relative;}
-.progress{height:100%;width:0;border-radius:10px;position:relative;animation:loadBar 2s ease forwards;overflow:hidden;background:linear-gradient(to right,#00f5ff,#00ffd1);}
-.progress::after{content:attr(data);position:absolute;right:5px;top:0;color:#fff;font-size:12px;line-height:14px;}
-@keyframes loadBar{to{width:var(--target);}}
+.progress{height:100%;width:0;border-radius:10px;position:relative;overflow:hidden;background:linear-gradient(to right,#00f5ff,#00ffd1);}
+.progress span{position:absolute;right:0;top:-20px;color:#fff;font-size:12px;font-weight:bold;}
 
 /* FOOTER */
 footer{text-align:center;padding:20px;opacity:.7;}
@@ -150,16 +149,16 @@ footer{text-align:center;padding:20px;opacity:.7;}
   <h2>Statistik Bahasa</h2>
   <div class="language-box">
     <div class="lang">Indonesia
-      <div class="bar"><div class="progress indo" data="100%"></div></div>
+      <div class="bar"><div class="progress indo" data="100%"><span>0%</span></div></div>
     </div>
     <div class="lang">Sunda
-      <div class="bar"><div class="progress sunda" data="100%"></div></div>
+      <div class="bar"><div class="progress sunda" data="100%"><span>0%</span></div></div>
     </div>
     <div class="lang">Inggris
-      <div class="bar"><div class="progress inggris" data="15%"></div></div>
+      <div class="bar"><div class="progress inggris" data="15%"><span>0%</span></div></div>
     </div>
     <div class="lang">Chinese
-      <div class="bar"><div class="progress china" data="5%"></div></div>
+      <div class="bar"><div class="progress china" data="5%"><span>0%</span></div></div>
     </div>
   </div>
 </section>
@@ -168,7 +167,7 @@ footer{text-align:center;padding:20px;opacity:.7;}
 
 <!-- MUSIK -->
 <audio id="bgm" loop>
-  <source src="suuwud7eudj" type="audio/mpeg">
+  <source src="one_piece_we_are.mp3" type="audio/mpeg">
 </audio>
 <button id="musicBtn" style="position:fixed;bottom:20px;right:20px;padding:12px;border:none;border-radius:50%;background:#f4c430;font-size:20px;cursor:pointer;z-index:999;">🎵</button>
 
@@ -208,7 +207,6 @@ document.querySelectorAll('.collapsible-btn').forEach(btn=>{
       content.style.maxHeight=null;
     } else {
       content.style.maxHeight=content.scrollHeight+"px";
-      // Haki animation flash
       const flash=document.createElement('div');
       flash.style.position='absolute';
       flash.style.width='100%';
@@ -237,9 +235,20 @@ document.querySelectorAll('.card').forEach(card=>{
   });
 });
 
-// Language bar with water/flow effect
+// Language bar with water/flow effect + percent
 document.querySelectorAll('.progress').forEach(p=>{
-  p.style.setProperty('--target',p.getAttribute('data'));
+  const target = parseInt(p.getAttribute('data'));
+  const span = p.querySelector('span');
+  let width=0;
+  const interval = setInterval(()=>{
+    if(width>=target){
+      width=target;
+      clearInterval(interval);
+    }
+    p.style.width = width+'%';
+    span.innerText = width+'%';
+    width++;
+  }, 20);
 });
 
 // Musik toggle

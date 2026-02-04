@@ -35,20 +35,20 @@ body::before{
 
 /* CARD POIN VERTIKAL */
 .card-section{
-  max-width:600px;margin:60px auto;display:flex;flex-direction:column;gap:20px;
+  max-width:700px;margin:60px auto;display:flex;flex-direction:column;gap:25px;
 }
-.card{background:rgba(255,255,255,0.1);border-radius:15px;padding:20px;width:100%;position:relative;cursor:pointer;overflow:hidden;transition:.3s;}
+.card{background:rgba(255,255,255,0.1);border-radius:15px;padding:25px;width:100%;position:relative;cursor:pointer;overflow:hidden;transition:.3s;}
 .card:hover{transform:scale(1.05);box-shadow:0 0 25px #f4c430;}
 .card img{width:120px;float:right;border-radius:10px;margin-left:10px;}
 .card h3{font-family:'Pirata One';color:#f4c430;margin-bottom:10px;}
 .card p{display:none;margin-top:10px;color:#fff;font-size:14px;line-height:1.4;}
 
 /* SKILL & LANGUAGE */
-.language-box,.skill-section{max-width:600px;margin:40px auto;display:flex;flex-direction:column;gap:20px;}
+.language-box,.skill-section{max-width:700px;margin:40px auto;display:flex;flex-direction:column;gap:25px;}
 .lang{display:flex;align-items:center;}
-.bar{background:rgba(255,255,255,.2);height:14px;border-radius:10px;overflow:hidden;margin-left:10px;flex:1;position:relative;}
+.bar{background:rgba(255,255,255,.2);height:16px;border-radius:10px;overflow:hidden;margin-left:10px;flex:1;position:relative;}
 .progress{height:100%;width:0;border-radius:10px;position:relative;overflow:hidden;background:linear-gradient(to right,#00f5ff,#00ffd1);}
-.progress span{position:absolute;right:0;top:-20px;color:#f4c430;font-size:12px;font-weight:bold;}
+.progress span{position:absolute;top:-22px;right:0;font-weight:bold;font-size:14px;color:#fffc00;text-shadow:0 0 4px #000;}
 
 /* FOOTER */
 footer{text-align:center;padding:20px;opacity:.7;}
@@ -104,21 +104,22 @@ footer{text-align:center;padding:20px;opacity:.7;}
     <p>Belum memiliki sertifikat</p>
     <img src="characters/chopper.png" alt="Chopper">
   </div>
-</div>
-
-<!-- LANGUAGE -->
-<div class="language-box" id="languageBox">
-  <div class="lang">Indonesia
-    <div class="bar"><div class="progress indo" data="100%"><span>0%</span></div></div>
-  </div>
-  <div class="lang">Sunda
-    <div class="bar"><div class="progress sunda" data="100%"><span>0%</span></div></div>
-  </div>
-  <div class="lang">Inggris
-    <div class="bar"><div class="progress inggris" data="15%"><span>0%</span></div></div>
-  </div>
-  <div class="lang">Chinese
-    <div class="bar"><div class="progress china" data="5%"><span>0%</span></div></div>
+  <div class="card" id="languageCard">
+    <h3>Bahasa</h3>
+    <div class="language-box" style="display:none;">
+      <div class="lang">Indonesia
+        <div class="bar"><div class="progress indo" data="100%"><span>0%</span></div></div>
+      </div>
+      <div class="lang">Sunda
+        <div class="bar"><div class="progress sunda" data="100%"><span>0%</span></div></div>
+      </div>
+      <div class="lang">Inggris
+        <div class="bar"><div class="progress inggris" data="15%"><span>0%</span></div></div>
+      </div>
+      <div class="lang">Chinese
+        <div class="bar"><div class="progress china" data="5%"><span>0%</span></div></div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -134,23 +135,36 @@ footer{text-align:center;padding:20px;opacity:.7;}
 // Card click → toggle deskripsi + Haki glow
 document.querySelectorAll('.card').forEach(card=>{
   card.addEventListener('click',()=>{
-    const p=card.querySelector('p');
-    if(p.style.display==='block'){p.style.display='none';card.style.boxShadow='0 0 25px #f4c430';}
-    else{p.style.display='block';card.style.boxShadow='0 0 50px #fffc00,0 0 100px #fffc00';}
+    const p=card.querySelector('p') || card.querySelector('.language-box');
+    if(p.style.display==='block'){
+      p.style.display='none';
+      card.style.boxShadow='0 0 25px #f4c430';
+      // reset bar bahasa
+      if(card.id==='languageCard'){
+        card.querySelectorAll('.progress').forEach(bar=>{
+          bar.style.width='0%';
+          bar.querySelector('span').innerText='0%';
+        });
+      }
+    } else {
+      p.style.display='block';
+      card.style.boxShadow='0 0 50px #fffc00,0 0 100px #fffc00';
+      // animasi bar bahasa
+      if(card.id==='languageCard'){
+        card.querySelectorAll('.progress').forEach(bar=>{
+          const target=parseInt(bar.getAttribute('data'));
+          const span=bar.querySelector('span');
+          let width=0;
+          const interval=setInterval(()=>{
+            if(width>=target){width=target;clearInterval(interval);}
+            bar.style.width=width+'%';
+            span.innerText=width+'%';
+            width++;
+          },20);
+        });
+      }
+    }
   });
-});
-
-// Language bar animation
-document.querySelectorAll('.progress').forEach(p=>{
-  const target=parseInt(p.getAttribute('data'));
-  const span=p.querySelector('span');
-  let width=0;
-  const interval=setInterval(()=>{
-    if(width>=target){width=target;clearInterval(interval);}
-    p.style.width=width+'%';
-    span.innerText=width+'%';
-    width++;
-  },20);
 });
 
 // Musik toggle
@@ -184,4 +198,4 @@ bountyBox.onclick=()=>{
 };
 </script>
 </body>
-</html>
+  </html>

@@ -3,294 +3,252 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CV Online - Galang Tri Ali Alamsah</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<title>CV Online</title>
 
 <style>
-*{
-  box-sizing:border-box;
+body{
+  font-family:Arial, sans-serif;
+  background:#f3f4f6;
   margin:0;
-  padding:0;
-  font-family:'Poppins',sans-serif;
+  padding:20px;
 }
 
-body{
-  background:#0f172a;
-  color:#e5e7eb;
+.container{
+  max-width:900px;
+  margin:auto;
+  background:#fff;
+  padding:20px;
+  border-radius:16px;
+  box-shadow:0 10px 30px rgba(0,0,0,.1);
 }
 
 /* ===== HEADER ===== */
 header{
   text-align:center;
-  padding:60px 20px;
-  background:linear-gradient(135deg,#1e293b,#020617);
 }
 
 header img{
-  width:200px;   /* PERBESAR DI SINI*/
-  height:200px;
-  object-fit: hidden;
-  object-position:center;
-  border-radius:45%;
+  width:150px;
+  height:150px;
+  object-fit:cover;
+  border-radius:50%;
   border:4px solid #6366f1;
-  box-shadow:0 10px 25px rgba(0,0,0,.35);
-  margin-bottom:15px;
+  box-shadow:0 8px 20px rgba(0,0,0,.25);
 }
 
 header h1{
-  font-size:32px;
-  font-weight:700;
+  margin:15px 0 5px;
 }
 
-.contact-info{
-  margin-top:15px;
+.contact{
   display:flex;
-  flex-wrap:wrap;
   justify-content:center;
   gap:15px;
+  flex-wrap:wrap;
   font-size:14px;
 }
 
-.contact-item{
-  background:#020617;
-  padding:8px 14px;
-  border-radius:20px;
+/* ===== CARD ===== */
+.card{
+  margin-top:25px;
+  padding:15px;
+  border-radius:12px;
+  background:#f9fafb;
+}
+
+/* ===== CLICKABLE SECTION ===== */
+.clickable{
+  cursor:pointer;
   display:flex;
-  gap:6px;
+  justify-content:space-between;
   align-items:center;
 }
 
-.contact-item a{
-  color:#38bdf8;
-  text-decoration:none;
+.content{
+  overflow:hidden;
+  transition:all .5s ease;
 }
 
-/* ===== CONTAINER ===== */
-.container{
-  max-width:900px;
-  margin:auto;
-  padding:30px 20px;
+.hidden{
+  max-height:0;
+  opacity:0;
+  transform:translateY(-10px);
 }
 
-.card{
-  background:#020617;
-  border-radius:18px;
-  padding:25px;
-  margin-bottom:25px;
-  box-shadow:0 10px 30px rgba(0,0,0,.4);
-}
-
-.card h2{
-  font-size:20px;
-  margin-bottom:15px;
-  border-left:5px solid #38bdf8;
-  padding-left:12px;
-}
-
-ul{
-  padding-left:20px;
-}
-
-li{
-  margin-bottom:8px;
+.show{
+  max-height:500px;
+  opacity:1;
+  transform:translateY(0);
+  margin-top:10px;
 }
 
 /* ===== LANGUAGE ===== */
-.language-buttons{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-  margin-bottom:20px;
-}
-
-.language-buttons button{
-  padding:8px 16px;
+.lang-buttons button{
+  margin:5px;
+  padding:8px 12px;
   border:none;
-  border-radius:20px;
-  background:#1e293b;
-  color:white;
+  border-radius:8px;
   cursor:pointer;
+  background:#6366f1;
+  color:#fff;
 }
 
 .language-box{
   display:none;
   justify-content:center;
-}
-
-.lang{
-  text-align:center;
+  margin-top:15px;
 }
 
 .circle{
   --percent:0;
-  --color:#ef4444;
   width:140px;
   height:140px;
   border-radius:50%;
   display:flex;
   align-items:center;
   justify-content:center;
-  font-weight:700;
-  font-size:24px;
-  color:#000;
+  font-weight:bold;
+  font-size:22px;
   background:conic-gradient(
-    var(--color) calc(var(--percent) * 1%),
+    var(--color) calc(var(--percent)*1%),
     #e5e7eb 0
   );
 }
 
-/* Flag colors */
-.indonesia{ --color:#ef4444; }
-.sunda{ --color:#22c55e; }
+/* warna bendera */
+.indonesia{ --color:linear-gradient(red 50%, white 50%); }
 .inggris{ --color:#1e3a8a; }
-.jepang{ --color:#dc2626; }
-.china{ --color:#b91c1c; }
-
-.lang p{
-  margin-top:10px;
-  color:#cbd5f5;
-}
-
-/* ===== FOOTER ===== */
-footer{
-  text-align:center;
-  padding:20px;
-  font-size:14px;
-  color:#64748b;
+.jepang{ --color:#fff; }
+.jepang::after{
+  content:'';
+  width:60px;
+  height:60px;
+  background:red;
+  border-radius:50%;
+  position:absolute;
 }
 </style>
+</head>
+
+<body>
+<div class="container">
+
+<header>
+  <img src="1770018338130.png">
+  <h1>Nama Lengkap</h1>
+
+  <div class="contact">
+    <span>📍 Alamat Lengkap</span>
+    <span>📞 08xxxxxxxx</span>
+    <span>🅾 𝐈𝐧𝐬𝐭𝐚𝐠𝐫𝐚𝐦 ★ @username</span>
+  </div>
+</header>
+
+<!-- ABOUT -->
+<div class="card">
+  <h2 class="clickable" onclick="toggleSection('about')">
+    📝 About Me <span id="icon-about">➕</span>
+  </h2>
+  <div id="about" class="content hidden">
+    Saya adalah pelajar yang bertanggung jawab, mudah beradaptasi,
+    serta memiliki minat di bidang desain dan presentasi.
+  </div>
+</div>
+
+<!-- EDUCATION -->
+<div class="card">
+  <h2 class="clickable" onclick="toggleSection('edu')">
+    🎓 Education <span id="icon-edu">➕</span>
+  </h2>
+  <div id="edu" class="content hidden">
+    <ul>
+      <li>SD (Lulus 20xx)</li>
+      <li>SMP (Lulus 20xx)</li>
+      <li>SMA (Lulus 20xx)</li>
+    </ul>
+  </div>
+</div>
+
+<!-- SKILLS -->
+<div class="card">
+  <h2 class="clickable" onclick="toggleSection('skills')">
+    🛠 Skills <span id="icon-skills">➕</span>
+  </h2>
+  <div id="skills" class="content hidden">
+    <ul>
+      <li>Desain menggunakan Canva</li>
+      <li>Membuat presentasi PowerPoint (WPS)</li>
+      <li>Dasar mengedit foto & video</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ORGANIZATION -->
+<div class="card">
+  <h2 class="clickable" onclick="toggleSection('org')">
+    🏫 Organization <span id="icon-org">➕</span>
+  </h2>
+  <div id="org" class="content hidden">
+    Eskul English
+  </div>
+</div>
+
+<!-- LANGUAGE -->
+<div class="card">
+  <h2>🌍 Language</h2>
+
+  <div class="lang-buttons">
+    <button onclick="showLang('indo')">Indonesia</button>
+    <button onclick="showLang('eng')">English</button>
+    <button onclick="showLang('jp')">Japan</button>
+  </div>
+
+  <div id="indo" class="language-box">
+    <div class="circle indonesia">90%</div>
+  </div>
+
+  <div id="eng" class="language-box">
+    <div class="circle inggris">60%</div>
+  </div>
+
+  <div id="jp" class="language-box">
+    <div class="circle jepang">30%</div>
+  </div>
+</div>
+
+</div>
 
 <script>
-function animateCircle(circle, target){
-  let value = 0;
-  const interval = setInterval(()=>{
-    value++;
-    circle.style.setProperty('--percent', value);
-    circle.textContent = value + '%';
-    if(value >= target) clearInterval(interval);
-  }, 15);
+function toggleSection(id){
+  const el=document.getElementById(id);
+  const icon=document.getElementById('icon-'+id);
+  el.classList.toggle('show');
+  el.classList.toggle('hidden');
+  icon.textContent = el.classList.contains('show') ? '➖':'➕';
+}
+
+function animateCircle(circle,target){
+  let p=0;
+  const i=setInterval(()=>{
+    p++;
+    circle.style.setProperty('--percent',p);
+    circle.textContent=p+'%';
+    if(p>=target) clearInterval(i);
+  },15);
 }
 
 function showLang(id){
   document.querySelectorAll('.language-box').forEach(b=>b.style.display='none');
-  const box = document.getElementById(id);
+  const box=document.getElementById(id);
   box.style.display='flex';
-
-  const circle = box.querySelector('.circle');
-  const target = parseInt(circle.dataset.percent);
-  circle.textContent = '0%';
-  animateCircle(circle, target);
+  const circle=box.querySelector('.circle');
+  const target=parseInt(circle.textContent);
+  circle.textContent='0%';
+  animateCircle(circle,target);
 }
 
-window.onload = ()=>showLang('indo');
+window.onload=()=>showLang('indo');
 </script>
-</head>
-
-<body>
-
-<header>
-  <img src="1770018338130.png" alt="Foto Galang">
-  <h1>Galang Tri Ali Alamsah</h1>
-
-  <div class="contact-info">
-    <div class="contact-item">🅾 𝐈𝐧𝐬𝐭𝐚𝐠𝐫𝐚𝐦 ★ <a href="https://instagram.com/galangtri11">@galangtri11</a></div>
-    <div class="contact-item">📞 0851-7997-2033</div>
-    <div class="contact-item">📍 Baleendah, Kabupaten Bandung</div>
-  </div>
-</header>
-
-<div class="container">
-
-<div class="card">
-  <h2>📝 About Me</h2>
-  <p>Saya adalah pelajar yang bertanggung jawab, mudah beradaptasi, serta mampu bekerja secara mandiri maupun dalam tim.</p>
-</div>
-
-<div class="card">
-  <h2>👤 Personal Data</h2>
-  <p><strong>Tahun Lahir:</strong> 2007</p>
-  <p><strong>Hobby:</strong> Bermain game, membaca komik, mendengarkan musik</p>
-</div>
-
-<div class="card">
-  <h2>🎓 Education</h2>
-  <ul>
-    <li>SDN Bantargedang Tasikmalaya — Lulus 2020</li>
-    <li>MTS As-Salam Baleendah — Lulus 2023</li>
-    <li>SMA KP Baleendah — Lulus 2026</li>
-  </ul>
-</div>
-
-<div class="card">
-  <h2>💡 Skills</h2>
-  <ul>
-    <li>Desain menggunakan Canva</li>
-    <li>Membuat presentasi PPT (WPS Office)</li>
-    <li>Dasar mengedit foto dan video</li>
-  </ul>
-</div>
-
-<div class="card">
-  <h2>📚 Organizational Experience</h2>
-  <ul>
-    <li>Ekstrakurikuler English Club</li>
-  </ul>
-</div>
-
-<div class="card">
-  <h2>🗣 Languages</h2>
-
-  <div class="language-buttons">
-    <button onclick="showLang('indo')">🇮🇩Indonesia</button>
-    <button onclick="showLang('sun')">🇮🇩Sunda</button>
-    <button onclick="showLang('eng')">🇬🇧 English</button>
-    <button onclick="showLang('jp')">🇯🇵Japan</button>
-    <button onclick="showLang('cn')">🇨🇳Chinese</button>
-  </div>
-
-  <div class="language-box" id="indo">
-    <div class="lang">
-      <div class="circle indonesia" data-percent="100">0%</div>
-      <p>Bahasa Indonesia</p>
-    </div>
-  </div>
-
-  <div class="language-box" id="sun">
-    <div class="lang">
-      <div class="circle sunda" data-percent="100">0%</div>
-      <p>ᮘᮠᮞ ᮞᮥᮔ᮪ᮓ</p>
-    </div>
-  </div>
-
-  <div class="language-box" id="eng">
-    <div class="lang">
-      <div class="circle inggris" data-percent="15">0%</div>
-      <p>Bahasa Inggris</p>
-    </div>
-  </div>
-
-  <div class="language-box" id="jp">
-    <div class="lang">
-      <div class="circle jepang" data-percent="10">0%</div>
-      <p>日本語</p>
-    </div>
-  </div>
-
-  <div class="language-box" id="cn">
-    <div class="lang">
-      <div class="circle china" data-percent="5">0%</div>
-      <p>中国人</p>
-    </div>
-  </div>
-
-</div>
-
-</div>
-
-<footer>
-  © 2026 • Galang Tri Ali Alamsah
-</footer>
 
 </body>
 </html>

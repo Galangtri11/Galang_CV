@@ -28,27 +28,27 @@ body::before{
 /* HERO BOUNTY */
 .bounty{background:#fdf3d7;color:#000;border:8px solid #3a2a18;border-radius:14px;padding:25px;text-align:center;box-shadow:0 0 30px rgba(0,0,0,.7);cursor:pointer;transition:.3s;position:relative;}
 .bounty:hover{box-shadow:0 0 60px #fffc00,0 0 120px #fffc00;}
-.bounty img{width:200px;border:6px solid #3a2a18;border-radius:10px;margin-bottom:15px;}
-.bounty h1{font-family:'Pirata One';font-size:36px;}
+.bounty img{width:220px;border:6px solid #3a2a18;border-radius:10px;margin-bottom:15px;}
+.bounty h1{font-family:'Pirata One';font-size:40px;}
 .info{font-size:14px;margin-top:10px;}
 .bounty-price{font-family:'Pirata One';font-size:28px;margin-top:10px;transition:.5s;}
 
 /* CARD POIN VERTIKAL */
 .card-section{
-  max-width:700px;margin:60px auto;display:flex;flex-direction:column;gap:25px;
+  max-width:800px;margin:60px auto;display:flex;flex-direction:column;gap:30px;
 }
-.card{background:rgba(255,255,255,0.1);border-radius:15px;padding:25px;width:100%;position:relative;cursor:pointer;overflow:hidden;transition:.3s;}
+.card{background:rgba(255,255,255,0.1);border-radius:15px;padding:30px;width:100%;position:relative;cursor:pointer;overflow:hidden;transition:.3s;}
 .card:hover{transform:scale(1.05);box-shadow:0 0 25px #f4c430;}
 .card img{width:120px;float:right;border-radius:10px;margin-left:10px;}
-.card h3{font-family:'Pirata One';color:#f4c430;margin-bottom:10px;}
-.card p{display:none;margin-top:10px;color:#fff;font-size:14px;line-height:1.4;}
+.card h3{font-family:'Pirata One';color:#f4c430;margin-bottom:10px;font-size:22px;}
+.card p{display:none;margin-top:10px;color:#fff;font-size:15px;line-height:1.6;}
 
 /* SKILL & LANGUAGE */
-.language-box,.skill-section{max-width:700px;margin:40px auto;display:flex;flex-direction:column;gap:25px;}
+.language-box,.skill-section{max-width:800px;margin:40px auto;display:flex;flex-direction:column;gap:30px;}
 .lang{display:flex;align-items:center;}
-.bar{background:rgba(255,255,255,.2);height:16px;border-radius:10px;overflow:hidden;margin-left:10px;flex:1;position:relative;}
-.progress{height:100%;width:0;border-radius:10px;position:relative;overflow:hidden;background:linear-gradient(to right,#00f5ff,#00ffd1);}
-.progress span{position:absolute;top:-22px;right:0;font-weight:bold;font-size:14px;color:#fffc00;text-shadow:0 0 4px #000;}
+.bar{background:rgba(255,255,255,.2);height:20px;border-radius:12px;position:relative;flex:1;overflow:hidden;}
+.progress{height:100%;width:0;border-radius:12px;background:linear-gradient(to right,#00f5ff,#00ffd1);position:relative;transition:width 0.3s;}
+.progress span{position:absolute;top:-25px;right:-10px;color:#fffc00;font-weight:bold;font-size:16px;text-shadow:0 0 4px #000;pointer-events:none;}
 
 /* FOOTER */
 footer{text-align:center;padding:20px;opacity:.7;}
@@ -139,7 +139,6 @@ document.querySelectorAll('.card').forEach(card=>{
     if(p.style.display==='block'){
       p.style.display='none';
       card.style.boxShadow='0 0 25px #f4c430';
-      // reset bar bahasa
       if(card.id==='languageCard'){
         card.querySelectorAll('.progress').forEach(bar=>{
           bar.style.width='0%';
@@ -149,7 +148,6 @@ document.querySelectorAll('.card').forEach(card=>{
     } else {
       p.style.display='block';
       card.style.boxShadow='0 0 50px #fffc00,0 0 100px #fffc00';
-      // animasi bar bahasa
       if(card.id==='languageCard'){
         card.querySelectorAll('.progress').forEach(bar=>{
           const target=parseInt(bar.getAttribute('data'));
@@ -198,4 +196,4 @@ bountyBox.onclick=()=>{
 };
 </script>
 </body>
-  </html>
+</html>

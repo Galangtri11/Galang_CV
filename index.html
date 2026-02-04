@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portofolio Galang | One Piece</title>
+<title>Portofolio Galang | One Piece Bounty</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
 
@@ -17,10 +17,10 @@
   margin:0;
   padding:0;
   box-sizing:border-box;
-  font-family:'Poppins',sans-serif;
 }
 
 body{
+  font-family:'Poppins',sans-serif;
   background:linear-gradient(180deg,#021024,#04395e);
   color:white;
 }
@@ -67,35 +67,55 @@ section{
   flex-direction:column;
 }
 
-.photo-box{
-  width:180px;
-  position:relative;
-  margin-bottom:20px;
-  animation:zoomIn 1.2s ease;
+/* ===== BOUNTY POSTER ===== */
+.bounty{
+  width:260px;
+  background:#e8d8b0;
+  color:#3b2a1a;
+  padding:15px;
+  border:6px solid #5a3d28;
+  box-shadow:0 0 40px rgba(0,0,0,0.6);
+  text-align:center;
+  font-family:'Times New Roman',serif;
+  margin-bottom:25px;
+  animation:bountyIn 1.4s ease;
 }
 
-.photo-box img{
-  width:100%;
-  border-radius:20px;
-  border:4px solid var(--primary);
-  box-shadow:0 0 25px rgba(244,196,48,0.8);
-}
-
-.wanted{
-  position:absolute;
-  top:-15px;
-  left:50%;
-  transform:translateX(-50%);
-  background:var(--accent);
-  padding:5px 14px;
-  font-size:12px;
+.bounty-title{
+  font-size:32px;
+  letter-spacing:4px;
   font-weight:bold;
-  border-radius:20px;
 }
 
-@keyframes zoomIn{
-  from{opacity:0;transform:scale(0.6);}
-  to{opacity:1;transform:scale(1);}
+.bounty img{
+  width:100%;
+  height:260px;
+  object-fit:cover;
+  border:4px solid #5a3d28;
+  margin:10px 0;
+  filter:sepia(25%) contrast(1.05);
+}
+
+.bounty-name{
+  font-size:18px;
+  font-weight:bold;
+  letter-spacing:2px;
+}
+
+.bounty-price{
+  font-size:22px;
+  font-weight:bold;
+  margin:8px 0;
+}
+
+.bounty-footer{
+  font-size:14px;
+  letter-spacing:2px;
+}
+
+@keyframes bountyIn{
+  from{opacity:0;transform:scale(0.7) rotate(-4deg);}
+  to{opacity:1;transform:scale(1) rotate(0);}
 }
 
 .hero h1{
@@ -195,16 +215,20 @@ footer{
 
 <nav>
   <a href="#home">Home</a>
-  <a href="#about">Tentang</a>
+  <a href="#about">Hobby</a>
   <a href="#education">Pendidikan</a>
   <a href="#skills">Keahlian</a>
   <a href="#contact">Kontak</a>
 </nav>
 
 <section id="home" class="hero">
-  <div class="photo-box">
-    <img src="1770018338130.png" alt="Foto Galang">
-    <div class="wanted">WANTED</div>
+
+  <div class="bounty">
+    <div class="bounty-title">WANTED</div>
+    <img src="1770018338130.png" alt="Galang Bounty">
+    <div class="bounty-name">GALANG<br>TRI ALI ALAMSAH</div>
+    <div class="bounty-price">B$ 150.000.000</div>
+    <div class="bounty-footer">DEAD OR ALIVE</div>
   </div>
 
   <h1>🏴‍☠️ Galang <span>Tri Ali Alamsah</span></h1>
@@ -212,13 +236,15 @@ footer{
   <div class="info">
     📱 0851-7997-2033<br>
     📍 Kp. Kawungsari, Baleendah, Kab. Bandung<br>
-    📷 Instagram: <a href="https://instagram.com/tri891" target="_blank">@tri891</a>
+    📷 Instagram:
+    <a href="https://instagram.com/tri891" target="_blank">@tri891</a>
   </div>
 
   <p class="tagline">
     Saya adalah seorang pelajar yang memiliki minat untuk belajar hal baru,
     bertanggung jawab, dan mampu bekerja secara mandiri maupun dalam tim.
   </p>
+
 </section>
 
 <section id="about">
@@ -247,7 +273,7 @@ footer{
     <div class="card">🎬 Edit Foto/Video Dasar</div>
     <div class="card">🇮🇩 Indonesia 100%</div>
     <div class="card">🇬🇧 Inggris 15%</div>
-    <div class="card">🇸🇩 Sunda 100%</div>
+    <div class="card">🇮🇩 Sunda 100%</div>
     <div class="card">🇨🇳 Chinese 5%</div>
   </div>
 </section>
